@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block seo_title %}Literature | CrustFungi.Com{% endblock %}
+{% block seo_description %}Literature page of CrustFungi.Com – all citations and associated PDF and URL links for crust fungi literature associated with the website.{% endblock %}
+
+{% block content %}
+<div class="literature">
+    <h2>Literature</h2>
+    <div class="references">
+        <ol>
+            {% for ref in references %}
+                <li class="reference">
+                    <p>
+                    {{ ref.citation|safe }} 
+                    {% if ref.pdf %}
+                        <a href="{{ ref.pdf.url }}" class="pdf">PDF</a> 
+                    {% endif %}
+                    {% if ref.url %}
+                        <a href="{{ ref.url }}" class="url">Link</a> 
+                    {% endif %}
+                    </p>
+                </li>
+            {% endfor %}
+        </ol>
+    </div>
+</div>
+{% endblock content %}

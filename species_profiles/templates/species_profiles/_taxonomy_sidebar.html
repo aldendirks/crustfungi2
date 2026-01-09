@@ -1,0 +1,40 @@
+{% load dict_extras %}
+
+<aside class="taxonomy-sidebar">
+
+    <div class="sidebar-toggle">
+        <p>Filters</p>
+    </div>
+
+    <div class="taxonomy-sidebar-header">
+        <h3>Taxonomy filters</h3>
+        {% if selected.values|join:"" %}
+            <p class="clear-filters">
+                <a href="{% url 'species_profiles:index' %}">Clear filters</a>
+            </p>
+        {% endif %}
+    </div>
+
+    {% for param,label,facet_key,field in ranks %}
+    <div class="facet facet-{{ param }}">
+        <div class="facet-label">
+            <h4>{{ label }}</h4>
+        </div>
+        <ul class="facet-options">
+            {% for row in facets|get_item:facet_key %}
+                <li>
+                    <a
+                        href="?{% for p, v in selected.items %}{% if v and p != param %}{{ p }}={{ v }}&{% endif %}{% endfor %}{{ param }}={{ row|get_item:field }}"
+                        class="{% if selected|get_item:param == row|get_item:field %}active{% endif %}">
+                        <i>{{ row|get_item:field }}</i>
+                        <span class="count">&nbsp;({{ row.count }})</span>
+                    </a>
+                </li>
+            {% empty %}
+                <li class="empty">—</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endfor %}
+
+</aside>

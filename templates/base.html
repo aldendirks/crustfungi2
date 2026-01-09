@@ -1,0 +1,139 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+
+    <!-- SEO Block -->
+    <title>{% block seo_title %}CrustFungi.Com{% endblock %}</title>
+    <meta name="description" content="{% block seo_description %}CrustFungi.Com{% endblock %}">
+    {% block seo_extra %}{% endblock %}
+    
+    <!-- Dark Mode (load before CSS) -->
+     <script>
+        (function () {
+            const theme = localStorage.getItem("theme");
+            const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            const root = document.documentElement;
+            if (theme === "dark" || (!theme && prefersDark)) {
+                root.classList.add("dark-mode");
+            }
+        })();
+    </script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/crustfungi.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/carousel/carousel.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/carousel/carousel.arrows.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/carousel/carousel.autoscroll.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/carousel/carousel.dots.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/carousel/carousel.lazyload.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/carousel/carousel.thumbs.css"/>
+
+    <!-- JS -->
+    <script src="{% static 'js/base.js' %}" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/carousel/carousel.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/carousel/carousel.arrows.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/carousel/carousel.autoscroll.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/carousel/carousel.dots.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/carousel/carousel.lazyload.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/carousel/carousel.thumbs.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
+    {% block extra_js %}{% endblock %}
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static 'favicon/favicon.ico' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32.png' %}">
+</head>
+<body>
+<header>
+    <nav class="nav-bounds">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="{% url 'home' %}">
+                    <img src="{% static 'images/icons/site_icon_small.png' %}" alt="CrustFungi.Com Logo">
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="{% url 'home' %}">HOME</a>
+                <a href="{% url 'introduction' %}">INTRO</a>
+                <a href="{% url 'species_profiles:index' %}">SPECIES</a>
+                <a href="{% url 'glossary' %}">GLOSSARY</a>
+                <a href="{% url 'literature:index' %}">LITERATURE</a>
+            </div>
+            <div class="login">
+                {% if user.is_authenticated %}
+                    <p><a href="{% url 'users:logout' %}">LOG OUT</a></p>
+                {% else %}
+                    <p><a href="{% url 'users:login' %}">LOGIN</a> &ensp; <a href="{% url 'users:register' %}">REGISTER</a></p>
+                {% endif %}
+            </div>
+            <form action="{% url 'species_profiles:search' %}" method="get" class="site-search">
+                <input type="text" name="q" placeholder="Search species…" value="{{ request.GET.q }}">
+                <button type="submit" class="button-major">Search</button>
+            </form>
+            <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
+                <span class="dark-mode-icon"></span>
+            </button>
+        </div>
+        <div class="hamburger" onclick="toggleMenu(this)">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+        </div>
+    </nav>
+</header>
+<main class="{% if sidebar_present %}with-sidebar{% endif %}">
+    {% block sidebar %}
+        <div class="left-sidebar">
+            {{ block.super }}
+        </div>
+    {% endblock sidebar %}
+    <div class="body-bounds">
+        <div class="body-container">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+</main>
+<footer>
+    <div class="footer-bounds">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <a href="{% url 'home' %}">
+                    <img src="{% static 'images/icons/site_icon_small.png' %}" alt="CrustFungi.Com Logo" width="100">
+                </a>
+                <p>CRUSTFUNGI.COM</p>
+            </div>
+            <p class="footer-copy">&copy; {% now "Y" %} CrustFungi.Com. All rights reserved.</p>
+            <!--
+            <div class="footer-links">
+                <a href="{% url 'home' %}">Home</a>
+                <a href="{% url 'introduction' %}">Intro</a>
+                <a href="{% url 'species_profiles:index' %}">Species</a>
+                <a href="{% url 'glossary' %}">Glossary</a>
+                <a href="{% url 'literature:index' %}">Literature</a>
+            </div>
+            -->
+            <div class="footer-links">
+                <a href="{% url 'about' %}">About</a> |
+                <a href="{% url 'terms' %}">Terms</a> |
+                <a href="{% url 'tutorial' %}">Tutorial</a> |
+                <a href="{% url 'contact' %}">Contact</a>
+            </div>
+            <p class="footer-tagline">A resource for all curious mycophiles.</p>
+            <div class="footer-social">
+                <a href="https://github.com/aldendirks" target="_blank" aria-label="GitHub">
+                    <img src="{% static 'images/icons/github.svg' %}" alt="GitHub icon">
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

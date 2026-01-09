@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block seo_title %}Home | CrustFungi.Com{% endblock %}
+{% block seo_description %}Home page of CrustFungi.Com – showcasing the diversity of crust fungi.{% endblock %}
+
+{% block extra_js %}
+    <script src="{% static 'js/index.js' %}" defer></script>
+{% endblock %}
+
+{% block content %}
+<div class="index">
+    <section class="home-gallery">
+        <!-- Autscroll stops if too few items are in carousel -->
+        <div class="f-carousel" id="homeCarousel">
+            {% for species in recent_species %}
+                {% with img=species.preview_image %}
+                    <div class="f-carousel__slide">
+                        <a href="{{ species.get_absolute_url }}">
+                            <img src="{{ img.url }}" alt="{{ species.species_name }}" loading="lazy">
+                            <p><em>{{ species.species_name }}</em></p>
+                            <small>Updated {{ species.updated_at|date:"F j, Y" }} by 
+                                {% if user.is_authenticated and user.username == "cf_admin" %}
+                                    Alden Dirks
+                                {% else %}
+                                    {{ species.updated_by }}
+                                {% endif %}
+                            </small>
+                        </a>
+                    </div>
+                {% endwith %} 
+            {% endfor %}
+        </div>
+    </section>
+</div>
+{% endblock content %}

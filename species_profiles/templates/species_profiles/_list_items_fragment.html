@@ -1,0 +1,20 @@
+{% load static %}
+{% load dict_extras %}
+
+{% for profile in species %}
+<div class="species-list-item">
+    {% if profile.thumbnail %}
+        <a href="{% url 'species_profiles:detail' slug=profile.slug %}">
+            <img src="{{ profile.thumbnail.url }}" alt="{{ profile.species_name }} thumbnail" class="species-image">
+        </a>
+    {% else %}
+        <a href="{% url 'species_profiles:detail' slug=profile.slug %}">
+            <img src="{% static 'images/species/default_species.png' %}" alt="No image" class="species-image">
+        </a>
+    {% endif %}
+    <p><i><a href="{% url 'species_profiles:detail' slug=profile.slug %}">
+        {{ profile.species_name }}</a></i></p>
+</div>
+{% empty %}
+<p>No species match this taxonomy.</p>
+{% endfor %}

@@ -1,0 +1,170 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block seo_title %}New Species | CrustFungi.Com{% endblock %}
+{% block seo_description %}New species form on CrustFungi.Com – add a new species to CrustFungi.Com.{% endblock %}
+
+{% block extra_js %}
+    <script src="{% static 'js/forms.js' %}" defer></script>
+{% endblock %}
+
+{% block content %}
+    <h2>Add a new species profile to CrustFungi.Com:</h2>
+    <p class="helper-text">Species profiles should be built from a set of vouchered specimens with ITS DNA barcode data and microscopic information. Review the <a href="{% url 'tutorial' %}">tutorial section</a> for information on creating and editing species profiles.</p>
+    <form action="{% url 'species_profiles:new_species' %}" method='post' enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <h3>Nomenclature</h3>
+        <p>{{ form.species_name.label_tag }} {{ form.species_name }}</p>
+        <p>{{ form.authorship.label_tag }} {{ form.authorship }}</p>
+        <p>{{ form.year_published.label_tag }} {{ form.year_published }}</p>
+        <p>{{ form.common_name.label_tag }} {{ form.common_name }}</p>
+        <p>MycoBank #: {{ form.mycobank }}</p>
+
+        <h3>Taxonomy</h3>
+        <p>Kingdom: {{ form.tax_kingdom }}</p>
+        <p>Phylum: {{ form.tax_phylum }}</p>
+        <p>Subphylum: {{ form.tax_subphylum }}</p>
+        <p>Class: {{ form.tax_class }}</p>
+        <p>Order: {{ form.tax_order }}</p>
+        <p>Family: {{ form.tax_family }}</p>
+        <p>Genus: {{ form.tax_genus }}</p>
+
+        <h3>Description</h3>
+        <p>{{ form.description.label_tag }} {{ form.description }}</p>
+        <p>{{ form.ecology.label_tag }} {{ form.ecology }}</p>
+        <p>{{ form.morphology.label_tag }} {{ form.morphology }}</p>
+        <p>{{ form.taste_odor.label_tag }} {{ form.taste_odor }}</p>
+        <p>{{ form.chemical_reactions.label_tag }} {{ form.chemical_reactions }}</p>
+        <p>{{ form.spore_print.label_tag }} {{ form.spore_print }}</p>
+        <p>{{ form.distribution.label_tag }} {{ form.distribution }}</p>
+        <p>{{ form.microscopic_features.label_tag }} {{ form.microscopic_features }}</p>
+
+        <h3>Studied Specimens</h3>
+        <p class="helper-text"><em>Species profiles should be built from a set of vouchered specimens with ITS DNA barcode data and microscopic information. DNA-barcoded specimens enhance profile quality by ensuring that the analyzed specimens are conspecific.</em></p>
+        <p>{{ form.specimens }}</p>
+
+        <h3>References</h3>
+        {{ form.literature.errors }}
+        <div class="literature-scroll" id="literature-scroll">
+        {% for entry in all_literature %}
+            <label class="literature-item"
+                data-sort-key="{{ entry.citation|striptags|lower }}">
+                <input type="checkbox"
+                    name="literature"
+                    value="{{ entry.id }}"
+                    {% if entry in profile.literature.all %}checked{% endif %}>
+                <span class="citation-html">
+                    {{ entry.citation|safe }}
+                </span>
+            </label>
+        {% endfor %}
+        </div>
+        <button type="button" id="add-literature-btn" class="button-minor" data-ajax-url="{% url 'literature:ajax_create_literature' %}">Add new reference</button>
+        <div id="literature-modal" hidden data-csrf-token="{{ csrf_token }}">
+            <h4>New Literature Reference</h4>
+            <div class="literature-field-wrapper">
+                <p>Citation:</p>
+                {{ literature_form.citation }}
+                {% if literature_form.citation.errors %}
+                    <ul class="errors">
+                        {% for error in literature_form.citation.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+            <div class="literature-field-wrapper">
+                {{ literature_form.pdf.label_tag }}
+                {{ literature_form.pdf }}
+                <p class="helper-text"><em>Optional PDF upload</em></p>
+                {% if literature_form.pdf.errors %}
+                    <ul class="errors">
+                        {% for error in literature_form.pdf.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+            <div class="literature-field-wrapper">
+                {{ literature_form.url.label_tag }}
+                {{ literature_form.url }}
+                <p class="helper-text"><em>Journal page, DOI URL, etc.</em></p>
+                {% if literature_form.url.errors %}
+                    <ul class="errors">
+                        {% for error in literature_form.url.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+            <div class="modal-actions">
+                <button type="button" id="save-literature" class="button-minor">Save reference</button>
+                <button type="button" id="cancel-literature" class="button-minor">Cancel</button>
+            </div>
+        </div>
+        
+        <h3>Images</h3>
+        <h4>Thumbnail</h4>
+        <p class="helper-text"><em>Image to be displayed on the species overview page.</em></p>
+        {{ form.thumbnail }}
+        <h4>Gallery</h4>
+        <p class="helper-text"><em>Gallery images must be in landscape orientation and at least 1200 x 800 px.</em></p>
+        {{ image_formset.management_form }}
+        <ul id="image-formset">
+        {% for image_form in image_formset %}
+            <div class="image-formset-item">
+                <li class="image-form">
+                    {{ image_form.order }}
+                    {{ image_form.id }}
+                    {% if image_form.instance.image %}
+                        <img src="{{ image_form.instance.image.url }}">
+                    {% endif %}
+                    <div class="field-wrapper">
+                        <p>{{ image_form.image.label_tag }} {{ image_form.image }}</p>
+                        <p>{{ image_form.caption.label_tag }} {{ image_form.caption }}</p>
+                    </div>
+                    {{ image_form.DELETE }}
+                </li>
+                <div class="image-buttons">
+                    <button type="button" class="button-minor delete-image-btn">✕</button>
+                    <button type="button" class="button-minor move-up-btn" title="Move up">↑</button>
+                    <button type="button" class="button-minor move-down-btn" title="Move down">↓</button>
+                </div>
+            </div>
+            {% if image_form.image.errors %}
+            <ul class="errors">
+                {% for error in image_form.image.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        {% endfor %}
+        </ul>
+        <div id="empty-image-form" style="display:none;">
+            <div class="image-formset-item">
+                <li class="image-form">
+                    {{ image_formset.empty_form.order }}
+                    {{ image_formset.empty_form.id }}
+                    <img src="{% static 'images/species/new_image.png' %}">
+                    <div class="field-wrapper">
+                        <p>{{ image_formset.empty_form.image.label_tag }} {{ image_formset.empty_form.image }}</p>
+                        <p>{{ image_formset.empty_form.caption.label_tag }} {{ image_formset.empty_form.caption }}</p>
+                    </div>
+                    {{ image_formset.empty_form.DELETE }}
+                </li>
+                <div class="image-buttons">
+                    <button type="button" class="button-minor delete-image-btn">✕</button>
+                    <button type="button" class="button-minor move-up-btn" title="Move up">↑</button>
+                    <button type="button" class="button-minor move-down-btn" title="Move down">↓</button>
+                </div>
+            </div>
+        </div>
+        <button type="button" id="add-image-btn" class="button-minor">Add Image</button>
+        <div class="form-submit-cancel">
+            <button name="submit" id="save-species-btn" class="button-major">Create Species Profile</button>
+            <a href="{% url 'species_profiles:index' %}" class="button-minor">Cancel</a>
+        </div>
+    </form>
+    {{ form.media }}
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block seo_title %}Search Results | CrustFungi.Com{% endblock %}
+
+{% block content %}
+<h1>Search results for "{{ query }}"</h1>
+{% if results %}
+    <ul>
+        {% for item in results %}
+            <li>
+                <a href="{% url 'species_profiles:detail' item.slug %}">
+                    <i>{{ item.species_name }}</i> {{ item.authorship }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No results found.</p>
+{% endif %}
+<p><a href="{% url 'species_profiles:index' %}">← Back to all species</a></p>
+{% endblock content %}

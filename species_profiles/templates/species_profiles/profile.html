@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block seo_title %}{{ profile.species_name }} | CrustFungi.Com{% endblock %}
+{% block seo_description %}Profile page of {{ profile.species_name }} on CrustFungi.Com – detailed information and images of {{ profile.species_name }}.{% endblock %}
+
+{% block extra_js %}
+    <script src="{% static 'js/species.js' %}" defer></script>
+{% endblock %}
+
+{% block content %}
+<div class="species-profile">
+    <section class="species-gallery">
+    {% if images %}
+        <div class="f-carousel" id="speciesCarousel">
+            {% for img in images %}
+                <div class="f-carousel__slide" data-fancybox="gallery" data-src="{{ img.image.url }}" data-thumb-src="{{ img.image.url }}">
+                    <figure>
+                        <img data-lazy-src="{{ img.image.url }}" alt="{{ img.caption|default:profile.species_name }}" loading="lazy"/>
+                        {% if img.caption %}
+                            <figcaption class="image-caption">
+                                {{ img.caption|safe }}
+                            </figcaption>
+                        {% endif %}
+                    </figure>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    </section>
+    <section class="profile-header">
+        {% if profile.common_name %}
+            <h1 class="common-name">{{ profile.common_name|title }}</h1>
+        {% endif %}
+        <h2 class="species-name"><i>{{ profile.species_name }}</i> {{ profile.authorship }}</h2>
+        <div class="taxonomy-container">
+            <h4 class="taxonomy">
+                <a href="{% url 'species_profiles:index' %}?kingdom={{ profile.tax_kingdom|urlencode }}"><i>{{ profile.tax_kingdom }}</i></a> > 
+                <a href="{% url 'species_profiles:index' %}?phylum={{ profile.tax_phylum|urlencode }}"><i>{{ profile.tax_phylum }}</i></a> > 
+                <a href="{% url 'species_profiles:index' %}?class={{ profile.tax_class|urlencode }}"><i>{{ profile.tax_class }}</i></a> > 
+                <a href="{% url 'species_profiles:index' %}?order={{ profile.tax_order|urlencode }}"><i>{{ profile.tax_order }}</i></a> > 
+                <a href="{% url 'species_profiles:index' %}?family={{ profile.tax_family|urlencode }}"><i>{{ profile.tax_family}}</i></a> > 
+                <a href="{% url 'species_profiles:index' %}?genus={{ profile.tax_genus|urlencode }}"><i>{{ profile.tax_genus }}</i></a>
+            </h4> 
+            {% if profile.mycobank %}
+                <a href="https://www.mycobank.org/MB/{{ profile.mycobank }}"><img src="{% static 'images/icons/MB_icon_60.png' %}" alt="MycoBank icon" class="tax-icon"></a>
+                <a href="https://www.indexfungorum.org/names/NamesRecord.asp?RecordID={{ profile.mycobank }}"><img src="{% static 'images/icons/index_fungorum_icon_60.png' %}" alt="IndexFungorum icon" class="tax-icon"></a>
+            {% endif %}
+        </div>
+    </section>
+    <section class="profile-content">
+        {{ profile.description|safe }}
+        <hr>
+        <h3>Details</h3>
+        {% if profile.ecology %}
+            <span class="profile-ecology">{{ profile.ecology|safe }}</span>
+        {% endif %}
+        {% if profile.morphology %}
+            <span class="profile-morphology">{{ profile.morphology|safe }}</span>
+        {% endif %}
+        {% if profile.taste_odor %}
+            <span class="profile-taste_odor">{{ profile.taste_odor|safe }}</span>
+        {% endif %}
+        {% if profile.chemical_reactions %}
+            <span class="profile-chemical_reactions">{{ profile.chemical_reactions|safe }}</span>
+        {% endif %}
+        {% if profile.spore_print %}
+            <span class="profile-spore_print">{{ profile.spore_print|safe }}</span>
+        {% endif %}
+        {% if profile.distribution %}
+            <span class="profile-distribution">{{ profile.distribution|safe }}</span>
+        {% endif %}
+        <hr>
+    </section>
+    <section class="profile-microscopy">
+        <h3>Microscopy</h3>
+        {{ profile.microscopic_features|safe }}
+        <hr>
+    </section>
+    <section class="profile-specimens">
+        <h3>Studied Specimens</h3>
+        {{ profile.specimens|safe }}
+        <hr>
+    </section>
+    <section class="references">
+        <h3>References</h3>
+        {% if profile.literature.count %}
+            <ol>
+                {% for ref in profile.literature.all %}
+                    <li class="reference">
+                        <p>
+                        {{ ref.citation|safe }} 
+                        {% if ref.pdf %}
+                            <a href="{{ ref.pdf.url }}" class="pdf">PDF</a> 
+                        {% endif %}
+                        {% if ref.url %}
+                            <a href="{{ ref.url }}" class="url">Link</a> 
+                        {% endif %}
+                        </p>
+                    </li>
+                {% endfor %}
+            </ol>
+        {% else %}
+            <p>No cited references.</p>
+        {% endif %}
+        <hr>
+    </section>
+    <section class="profile-citation">
+        <h3>Citation</h3>
+        <p id="citation-text">{{ citation|safe }}</p>
+        <button id="copy-citation-btn" class="button-major">
+            Copy citation
+    </button>
+    </section>
+    <section class="profile-footer">
+        <div class="profile-footer-item">
+            <p><a href="{% url 'species_profiles:index' %}">← Back to all species</a></p>
+        </div>
+        <div class="profile-footer-item">
+            <p class="helper-text"><em>Last updated on {{ profile.updated_at|date:"F j, Y" }}.</em></p>
+        </div>
+        <div class="profile-footer-item">
+            <p id="edit-profile"><a href="{% url 'species_profiles:edit_species' slug=profile.slug %}">Edit species profile</a></p>
+        </div>
+    </section>
+</div>
+{% endblock content %}

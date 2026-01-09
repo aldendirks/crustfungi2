@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block seo_title %}About | CrustFungi.Com{% endblock %}
+{% block seo_description %}About page of CrustFungi.Com – learn about the creator of CrustFungi.Com and future development goals.{% endblock %}
+
+{% block content %}
+<div class="about">
+    <h1>Welcome to CrustFungi.Com!</h1>
+    <p>My name is <a href="https://www.aldendirks.com/" target="_blank">Alden Dirks</a>, and I am the creator of CrustFungi.Com. CrustFungi.Com aims to be the comprehensive web-based resource on crust fungi. Inspired by Michael Kuo's <a href="https://www.mushroomexpert.com/index.html" target="_blank">MushroomExpert.Com</a> but with an explicit focus on crusts, my goal is to provide the public a high-quality, scientifically accurate educational platform on these understudied and overlooked but hyperdiverse fungi. Launched in 2018, a few crust fungi species profiles were added over the years, but the site remained limited in scope.</p>
+    <h3>CrustFungi.Com 2.0</h3>
+    <p>During a period of unemployment in late 2025, I completely redesigned CrustFungi.Com as modern web app using the <a href="https://www.djangoproject.com/" target="_blank">Django web framework</a>. A search functionality was added, and a taxonomy filter was implemented. Most importantly, species profiles are now stored in a database, and any user can add new profiles to the website. I hope that CrustFungi.Com will grow faster and better capture the many different crust species of the world as a crowdsourced, community endeavor.</p>
+    <h3>Aesthetics</h3>
+    <p>The new websites retains many of the aesthetics of the first version. The logo of CrustFungi.Com is a linoleum print that I made some time ago — it is meant to represent a crust species like <i>Phlebia radiata</i> or the like. The navigation links are written in <a href="https://www.behance.net/gallery/61877879/Peich-linocut-typeface-font?locale=en_US">Peich linocut typeface font</a> to match the logo design. Thanks Robert Young for this beautiful font!</p>
+    <h3>The future of CrustFungi.Com</h3>
+    <p>My future goals for CrustFungi.Com include creating a custom crust ITS database and BLAST portal, linking species profiles to specific observations (e.g., iNaturalist observations), and generating distribution maps for each species.</p>
+    <img src="{% static 'images/about/original_homepage.png' %}" alt="Original CrustFungi.Com website homepage">
+    <div class="about-fig-description">
+        <p><strong>Figure 1.</strong> The original homepage of CrustFungi.Com.</p>
+    </div>
+</div>
+{% endblock content %}

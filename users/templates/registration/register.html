@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Register an account with CrustFungi.Com</h2>
+  <p class="helper-text">Already have an account? Log in <a href="{% url 'users:login' %}">here</a>.</p>
+  <form class="registration-form" method="post" action="{% url 'users:register' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button name="submit" class="button-minor">Register</button>
+    <input type="hidden" name="next" value="{% url 'home' %}"/>
+  </form>
+{% endblock content %}

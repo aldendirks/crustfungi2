@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+{% load dict_extras %}
+
+{% block seo_title %}Species | CrustFungi.Com{% endblock %}
+{% block seo_description %}Species page on CrustFungi.Com – list of crust species treated on CrustFungi.Com.{% endblock %}
+
+{% block extra_js %}
+    <script src="{% static 'js/species.js' %}" defer></script>
+{% endblock %}
+
+{% block sidebar %}
+    {% include "species_profiles/_taxonomy_sidebar.html" %}
+{% endblock sidebar %}
+
+{% block content %}
+<div class="species-list">
+    <div class="species-list-header">
+        {% include "species_profiles/_list_header_fragment.html" %}
+    </div>
+    <div class="species-list-container">
+        {% include "species_profiles/_list_items_fragment.html" %}
+    </div>
+</div>
+{% endblock content %}

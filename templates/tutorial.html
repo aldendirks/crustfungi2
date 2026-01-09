@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block seo_title %}Tutorial | CrustFungi.Com{% endblock %}
+{% block seo_description %}Tutorial page of CrustFungi.Com – guidance on creating and editing species profiles on CrustFungi.Com.{% endblock %}
+
+{% block content %}
+<div class="tutorial">
+    <h2>Information on Creating New Species Profiles</h2>
+    <section class="tutorial-nomenclature">
+        <h3>Nomenclature</h3>
+        <h4>Species Name</h4>
+        <h4>Common Name</h4>
+        <h4>MycoBank Accession Number</h4>
+        <p><a href="https://www.mycobank.org/" target="_blank">MycoBank</a> and <a href="https://www.indexfungorum.org/" target="_blank"> Index Fungorum</a> are nomenclatural databases. They store information on species names, authorship, publication information, and more. The two databases are linked such that they refer to the same taxon with the same accession number. <strong>I highly encourage you to enter a MycoBank accession number in your species profile.</strong> When one is included, icons with links to the associated MycoBank and Index Fungorum pages are displayed in the species profile taxonomy section. This is not a required field only because provisional species names are unpublished and do not have MycoBank numbers. To find a MycoBank accession number (and other useful nomenclatural information), search for your species of interest at <a href="https://www.mycobank.org/Simple%20names%20search" target="_blank">MycoBank</a>. Look for the "MycoBank #" field in the General Information section (see Figure 1).</p>
+        <img src="{% static 'images/tutorial/MycoBank_example.png' %}">
+    </section>
+    <section class="tutorial-taxonomy">
+        <h3>Taxonomy</h3>
+    </section>
+    <section class="tutorial-description">
+        <h3>Description</h3>
+    </section>
+    <section class="tutorial-specimens">
+        <h3>Studied Specimens</h3>
+    </section>
+    <section class="tutorial-references">
+        <h3>References</h3>
+    </section>
+    <section class="tutorial-images">
+        <h3>Images</h3>
+    </section>
+</div>
+{% endblock content %}

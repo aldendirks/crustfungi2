@@ -1,0 +1,26 @@
+{% load static %}
+{% load dict_extras %}
+
+<p id="species-filter">
+    {% if has_filters %}
+        Species list for
+        {% for param,label,facet_key,field in ranks %}
+            {% if selected|get_item:param %}
+                <i>{{ selected|get_item:param }}</i>{% if not forloop.last %} › {% endif %}
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        No filters applied.
+    {% endif %}
+</p>
+<div class="right-header-container">
+    <p id="new-profile"><a href="{% url 'species_profiles:new_species' %}">New profile</a></p>
+    <div class="image-size-toggle">
+        <button type="button" class="button-major image-size-btn active" data-size="small" aria-label="Small images" title="Small images">
+            ⧉
+        </button>
+        <button type="button" class="button-major image-size-btn" data-size="large" aria-label="Large images" title="Large images">
+            ⧠
+        </button>
+    </div>
+</div>
