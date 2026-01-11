@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block content %}
-    <h2>Add a new species profile to CrustFungi.Com:</h2>
+    <h1>Create a new species profile</h1>
     <p class="helper-text">Species profiles should be built from a set of vouchered specimens with ITS DNA barcode data and microscopic information. Review the <a href="{% url 'tutorial' %}">tutorial section</a> for information on creating and editing species profiles.</p>
     <form action="{% url 'species_profiles:new_species' %}" method='post' enctype="multipart/form-data">
         {% csrf_token %}
