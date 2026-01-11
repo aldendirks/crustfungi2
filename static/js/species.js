@@ -56,6 +56,11 @@ function applyStoredImageSize() {
     document.querySelectorAll(".image-size-btn").forEach((btn) => {
         btn.classList.toggle("active", btn.dataset.size === size);
     });
+
+    // Recalculate container width after applying the size class
+    if (typeof resizeSpeciesListContainer === "function") {
+        resizeSpeciesListContainer();
+    }
 }
 document.addEventListener("DOMContentLoaded", applyStoredImageSize);
 

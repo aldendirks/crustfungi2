@@ -14,14 +14,14 @@ document.addEventListener("DOMContentLoaded", () => {
     if (homeCarousel) {
         const carousel = Carousel(homeCarousel, options, { Arrows, Dots }).init();
         
-        // Auto-advance carousel at 5-second intervals
+        // Auto-advance carousel at 4-second intervals
         let autoAdvanceInterval;
         let isHovering = false;
 
         const startAutoAdvance = () => {
-            if (!isHovering) {
+            if (!isHovering && !document.hidden) {
                 autoAdvanceInterval = setInterval(() => {
-                    if (!isHovering) {
+                    if (!isHovering && !document.hidden) {
                         carousel.next();
                     }
                 }, 4000);
@@ -41,6 +41,15 @@ document.addEventListener("DOMContentLoaded", () => {
         homeCarousel.addEventListener("mouseleave", () => {
             isHovering = false;
             startAutoAdvance();
+        });
+
+        // Pause carousel when tab becomes hidden, resume when visible
+        document.addEventListener("visibilitychange", () => {
+            if (document.hidden) {
+                stopAutoAdvance();
+            } else {
+                startAutoAdvance();
+            }
         });
 
         startAutoAdvance();
