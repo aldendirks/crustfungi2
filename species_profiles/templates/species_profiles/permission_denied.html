@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block seo_title %}Permission Denied - CrustFungi.Com{% endblock %}
+{% block seo_description %}You do not have permission to access this page.{% endblock %}
+
+{% block content %}
+<div class="body-container">
+    <div class="permission-denied-box">
+        <h1>Permission Denied</h1>
+        <p>Only the creator or admin may edit a species profile page. If you'd like to edit a page that you are not the owner of, <a href="{% url 'contact' %}">contact the admin team</a>.</p>
+        <a href="{% url 'species_profiles:index' %}" class="button-major">Back to Species</a>
+    </div>
+</div>
+{% endblock %}
