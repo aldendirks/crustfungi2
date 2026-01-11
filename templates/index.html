@@ -19,12 +19,9 @@
                         <a href="{{ species.get_absolute_url }}">
                             <img src="{{ img.url }}" alt="{{ species.species_name }}" loading="lazy">
                             <p><em>{{ species.species_name }}</em></p>
-                            <small>Updated {{ species.updated_at|date:"F j, Y" }} by 
-                                {% if species.updated_by == "cf_admin" %}
-                                    Alden Dirks
-                                {% else %}
-                                    {{ species.updated_by }}
-                                {% endif %}
+                            <small>
+                                Updated {{ species.updated_at|date:"F j, Y" }} 
+                                by {{ species.updated_by.get_full_name }}
                             </small>
                         </a>
                     </div>
