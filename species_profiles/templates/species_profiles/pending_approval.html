@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block seo_title %}Profile Pending Approval - CrustFungi.Com{% endblock %}
+{% block seo_description %}Your species profile has been submitted and is pending approval.{% endblock %}
+
+{% block content %}
+<div class="pending-approval">
+    <div class="pending-approval-box">
+        <h2>Profile Submitted</h2>
+        <p>Thank you for creating a species profile! Your profile for <em>{{ profile.species_name }}</em> has been submitted and is pending approval before it will be displayed on the site. You can continue editing this page using the link below. <a href="{% url 'contact' %}" target="_blank">Contact</a> the admin team if you have any questions.</p>
+        
+        <div class="pending-approval-actions">
+            <p>Edit species profile: <a href="{% url 'species_profiles:edit_species' profile.slug %}" class="button-major">{% url 'species_profiles:edit_species' profile.slug %}</a></p>
+        </div>
+        
+    </div>
+</div>
+{% endblock %}
