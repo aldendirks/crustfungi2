@@ -10,7 +10,7 @@
         <p>Thank you for creating a species profile! Your profile for <em>{{ profile.species_name }}</em> has been submitted and is pending approval before it will be displayed on the site. You can continue editing this page using the link below. <a href="{% url 'contact' %}" target="_blank">Contact</a> the admin team if you have any questions.</p>
         
         <div class="pending-approval-actions">
-            <p>Edit species profile: <a href="{% url 'species_profiles:edit_species' profile.slug %}" class="button-major">{% url 'species_profiles:edit_species' profile.slug %}</a></p>
+            <p>URL to edit species profile: <a href="{% url 'species_profiles:edit_species' profile.slug %}">{% url 'species_profiles:edit_species' profile.slug %}</a></p>
         </div>
         
     </div>
