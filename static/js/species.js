@@ -72,10 +72,23 @@ function resizeSpeciesListContainer() {
     const container = document.querySelector(".species-list-container");
     if (!header || !container) return;
 
-    const speciesList = document.querySelector(".species-list");
-    const itemWidth = speciesList?.classList.contains("large-images") ? 460 : 220;
-    const gap = 20;
     const windowWidth = window.innerWidth;
+    const speciesList = document.querySelector(".species-list");
+    const gap = 20;
+    
+    // Mobile layout: 2 columns side by side
+    if (windowWidth <= 768) {
+        const padding = 20;
+        const availableWidth = windowWidth - padding;
+        const itemWidth = (availableWidth - gap) / 2;
+        const containerWidth = itemWidth * 2 + gap;
+        
+        header.style.width = `${containerWidth}px`;
+        container.style.width = `${containerWidth}px`;
+        return;
+    }
+
+    const itemWidth = speciesList?.classList.contains("large-images") ? 460 : 220;
 
     // Sidebar width only counts on large screens (>960px)
     const sidebarWidth = windowWidth > 960 ? 400 : 0;
