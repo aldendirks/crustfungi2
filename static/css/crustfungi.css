@@ -538,10 +538,11 @@ footer {
 
 .hero {
   position: relative;
-  width: 100%;
+  width: 100vw;
   height: 500px;
   overflow: hidden;
   margin-bottom: 40px;
+  margin-left: calc(-50vw + 50%);
 }
 
 .hero__image {
