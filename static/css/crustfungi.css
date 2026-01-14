@@ -901,6 +901,24 @@ footer {
   }
 }
 
+@media (max-width: 768px) {
+  .species-list-item {
+    width: 100%;
+  }
+
+  .species-list-item img {
+    width: 100%;
+  }
+
+  .species-list-container {
+    gap: 10px;
+  }
+
+  .right-header-container .image-size-toggle {
+    display: none;
+  }
+}
+
 /*-------------------------
   Species Profiles
 -------------------------*/
