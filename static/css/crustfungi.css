@@ -510,6 +510,10 @@ footer {
 }
 
 .footer-social img {
+  margin: 0 8px;
+}
+
+.footer-social img {
   width: 24px;
   transform: scale(1.2);
 }
