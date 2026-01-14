@@ -19,14 +19,14 @@
         </div>
     </div>
     <h1>Welcome to CrustFungi.Com!</h1>
-    <h2>Recently updated species profiles</h2>
+    <h2>Recently updated profiles</h2>
     <!-- Autscroll stops if too few items are in carousel -->
     <div class="f-carousel" id="homeCarousel">
         {% for species in recent_species %}
             {% with img=species.preview_image %}
                 <div class="f-carousel__slide">
                     <a href="{{ species.get_absolute_url }}">
-                        <img src="{{ img.url }}" alt="{{ species.species_name }}" loading="lazy">
+                        <img src="{{ img.url }}" alt="{{ species.species_name }}" loading="eager">
                         <p><em>{{ species.species_name }}</em></p>
                         <small>
                             Updated {{ species.updated_at|date:"F j, Y" }} 
