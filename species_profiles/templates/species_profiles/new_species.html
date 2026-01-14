@@ -10,7 +10,7 @@
 
 {% block content %}
     <h2>Create a new species profile</h2>
-    <p class="helper-text">Species profiles should be built from a set of vouchered specimens with ITS DNA barcode data and microscopic information. Review the <a href="{% url 'tutorial' %}">tutorial section</a> for information on creating and editing species profiles.</p>
+    <p class="helper-text">Species profiles should be built from a set of vouchered specimens with ITS DNA barcode data and microscopic information. DNA-barcoded specimens enhance profile quality by ensuring that the studied specimens are conspecific. Review the <a href="{% url 'tutorial' %}">tutorial section</a> for information on creating and editing species profiles.</p>  
     <form action="{% url 'species_profiles:new_species' %}" method='post' enctype="multipart/form-data">
         {% csrf_token %}
 
@@ -41,7 +41,6 @@
         <p>{{ form.microscopic_features.label_tag }} {{ form.microscopic_features }}</p>
 
         <h3>Studied Specimens</h3>
-        <p class="helper-text"><em>Species profiles should be built from a set of vouchered specimens with ITS DNA barcode data and microscopic information. DNA-barcoded specimens enhance profile quality by ensuring that the analyzed specimens are conspecific.</em></p>
         <p>{{ form.specimens }}</p>
 
         <h3>References</h3>
