@@ -1138,6 +1138,10 @@ a.button-major:hover {
 /*-------------------------
   User forms
 -------------------------*/
+.nonfield {
+  display: none;
+}
+
 .login-form,
 .registration-form {
   margin: 30px 0;
