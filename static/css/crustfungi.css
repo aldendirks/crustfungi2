@@ -274,7 +274,7 @@ header {
 .nav-container {
   display: flex;
   align-items: center; /* vertically align logo and links despite different heights */
-  gap: 30px;
+  gap: 25px;
   padding: 5px 20px;
 }
 
