@@ -345,7 +345,7 @@ header {
 
 .dark-mode-icon::before {
   content: "⏾";
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 html.dark-mode .dark-mode-icon::before {
@@ -509,10 +509,16 @@ footer {
   font-style: italic;
 }
 
+.footer-social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
 .footer-social img {
   width: 24px;
   transform: scale(1.2);
-  margin: 0 8px;
 }
 
 .footer-social img:hover {
@@ -521,12 +527,18 @@ footer {
 
 #footerDarkModeToggle {
   display: none;
-  margin: 0 8px;
+  margin-right: -5px;
 }
 
 @media (max-width: 1300px) {
   #footerDarkModeToggle {
     display: inline-block;
+    margin-top: -3px;
+  }
+
+  html.dark-mode #footerDarkModeToggle {
+    display: inline-block;
+    margin-top: -7px;
   }
 }
 
@@ -734,7 +746,7 @@ footer {
 }
 
 .taxonomy-sidebar .facet .facet-label h4 {
-  margin: 0;
+  margin: 10px 0;
   font-size: 0.9rem;
 }
 
@@ -757,6 +769,7 @@ footer {
 .taxonomy-sidebar a {
   text-decoration: none;
   display: inline-block;
+  font-size: 0.9rem;
 }
 
 .taxonomy-sidebar .count {
