@@ -83,6 +83,7 @@ function resizeSpeciesListContainer() {
         const itemWidth = (availableWidth - gap) / 2;
         const containerWidth = itemWidth * 2 + gap;
         
+        speciesList.style.setProperty('--species-img-size', `${itemWidth}px`);
         header.style.width = `${containerWidth}px`;
         container.style.width = `${containerWidth}px`;
         return;
