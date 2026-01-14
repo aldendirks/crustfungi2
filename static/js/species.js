@@ -79,7 +79,7 @@ function resizeSpeciesListContainer() {
     // Mobile layout: 2 columns side by side
     if (windowWidth <= 768) {
         const padding = 20;
-        const availableWidth = windowWidth - padding;
+        const availableWidth = windowWidth - padding - padding;
         const itemWidth = (availableWidth - gap) / 2;
         const containerWidth = itemWidth * 2 + gap;
         
@@ -106,6 +106,7 @@ function resizeSpeciesListContainer() {
     // Make sure container width doesn't exceed availableWidth
     if (containerWidth > availableWidth) containerWidth = availableWidth;
 
+    speciesList.style.setProperty('--species-img-size', `${itemWidth}px`);
     header.style.width = `${containerWidth}px`;
     container.style.width = `${containerWidth}px`;
 }
