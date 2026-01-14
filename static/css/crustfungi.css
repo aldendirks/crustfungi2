@@ -419,12 +419,12 @@ html.dark-mode .dark-mode-toggle:hover {
     display: flex;
     justify-content: center;
     margin: -20px 0;
-    margin-left: 15px;
+    margin-left: 17px;
   }
 
   nav.responsive .site-search {
     display: flex;
-    margin: -10px 0 20px 15px;
+    margin: -10px 0 0 15px;
   }
   
   nav.responsive .site-search input,
@@ -432,9 +432,15 @@ html.dark-mode .dark-mode-toggle:hover {
     display: flex;
   }
 
+  nav.responsive .dark-mode-toggle {
+    display: flex;
+    margin: -10px 0 20px 15px;
+  }
+
   nav.responsive .nav-links,
   nav.responsive .login,
-  nav.responsive .site-search {
+  nav.responsive .site-search,
+  nav.responsive .dark-mode-toggle {
     transform: translateY(0);
     animation: navFadeIn 0.5s ease;
   }
