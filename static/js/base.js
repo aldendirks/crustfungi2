@@ -16,8 +16,9 @@ function toggleMenu(hamburger) {
 // Dark mode toggle
 // =========================================================
 document.addEventListener("DOMContentLoaded", () => {
-    const toggleBtn = document.getElementById("darkModeToggle");
-    if (!toggleBtn) return;
+    const navToggleBtn = document.getElementById("navDarkModeToggle");
+    const footerToggleBtn = document.getElementById("footerDarkModeToggle");
+    const buttons = [navToggleBtn, footerToggleBtn].filter(btn => btn !== null);
 
     function updateUI() {
         const isDark = document.documentElement.classList.contains("dark-mode");
@@ -26,9 +27,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     updateUI();
 
-    toggleBtn.addEventListener("click", () => {
-        document.documentElement.classList.toggle("dark-mode");
-        updateUI();
+    // Add click handler to all available toggle buttons
+    buttons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            document.documentElement.classList.toggle("dark-mode");
+            updateUI();
+        });
     });
 });
 

@@ -77,7 +77,7 @@
                 <input type="text" name="q" placeholder="Search species…" value="{{ request.GET.q }}">
                 <button type="submit" class="button-major">Search</button>
             </form>
-            <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
+            <button id="navDarkModeToggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
                 <span class="dark-mode-icon"></span>
             </button>
         </div>
@@ -134,6 +134,9 @@
                 <a href="https://aldendirks.com" target="_blank" aria-label="Personal Website">
                     <img src="{% static 'images/icons/aldendirks.svg' %}" alt="Personal Website icon">
                 </a>
+                <button id="footerDarkModeToggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
+                    <span class="dark-mode-icon"></span>
+                </button>
             </div>
         </div>
     </div>

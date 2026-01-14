@@ -393,7 +393,7 @@ html.dark-mode .dark-mode-toggle:hover {
   .login, 
   .site-search input,   /* Needs to be explicitly called for some reason */
   .site-search button,  /* Needs to be explicitly called for some reason */
-  .dark-mode-toggle {
+  #navDarkModeToggle {  
     display: none;
   }
 
@@ -419,12 +419,12 @@ html.dark-mode .dark-mode-toggle:hover {
     display: flex;
     justify-content: center;
     margin: -20px 0;
-    margin-left: 17px;
+    margin-left: 15px;
   }
 
   nav.responsive .site-search {
     display: flex;
-    margin: -10px 0 0 15px;
+    margin: -10px 0 20px 15px;
   }
   
   nav.responsive .site-search input,
@@ -432,15 +432,9 @@ html.dark-mode .dark-mode-toggle:hover {
     display: flex;
   }
 
-  nav.responsive .dark-mode-toggle {
-    display: flex;
-    margin: -10px 0 20px 15px;
-  }
-
   nav.responsive .nav-links,
   nav.responsive .login,
-  nav.responsive .site-search,
-  nav.responsive .dark-mode-toggle {
+  nav.responsive .site-search {
     transform: translateY(0);
     animation: navFadeIn 0.5s ease;
   }
@@ -523,6 +517,16 @@ footer {
 
 .footer-social img:hover {
   opacity: 0.6;
+}
+
+#footerDarkModeToggle {
+  display: none;
+}
+
+@media (max-width: 1300px) {
+  #footerDarkModeToggle {
+    display: inline-block;
+  }
 }
 
 .footer-logo.shake {
