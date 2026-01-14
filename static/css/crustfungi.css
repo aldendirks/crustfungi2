@@ -229,6 +229,10 @@ p, ul, ol, blockquote {
   margin-bottom: 15px;
 }
 
+form p {
+  font-size: 0.9rem;
+}
+
 ul, ol {
   padding-left: 40px;
 }
@@ -1080,6 +1084,7 @@ form select {
 form p:has(input) {
   display: grid;
   grid-template-columns: 150px 1fr;
+  align-items: center;
 }
 
 form p:has(textarea) {
@@ -1196,10 +1201,6 @@ html.dark-mode .literature-scroll input[type="checkbox"] {
   margin-top: 60px;
 }
 
-#id_thumbnail {
-  grid-column: span 2;
-}
-
 /* Remove clear checkbox for thumbnail upload */
 p:has(input[type="checkbox"]) input[type="checkbox"],
 p:has(input[type="checkbox"]) br,
@@ -1239,12 +1240,6 @@ label[for="thumbnail-clear_id"] {
   max-width: 100%; 
   object-fit: cover;
   border-radius: 4px;
-}
-
-.image-form p {
-  margin: 0;
-  font-size: 0.9rem;
-  align-items: center;  
 }
 
 .image-form .tox-tinymce {
