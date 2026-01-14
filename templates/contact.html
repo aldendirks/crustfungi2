@@ -55,6 +55,11 @@
                 {% endif %}
             </div>
 
+            <div class="form-group">
+                {{ form.captcha }}
+                {{ form.captcha.errors }}
+            </div>
+
             <button type="submit" class="button-major">Send Message</button>
         </form>
     </div>
