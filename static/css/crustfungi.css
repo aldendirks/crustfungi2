@@ -86,7 +86,7 @@ input[type="file"]::file-selector-button {
   border-radius: 6px;
   padding: 4px 8px;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 input[type="file"]::file-selector-button {
@@ -216,7 +216,7 @@ a:hover {
 }
 
 p, ul, ol, blockquote {
-  font-size: 1.125rem;
+  font-size: 1rem;
   margin-bottom: 15px;
 }
 
@@ -243,7 +243,7 @@ hr {
 
 .helper-text {
   color: var(--nav-text-light);
-  font-size: 0.9375rem;
+  font-size: 0.8rem;
 }
 
 .errors {
@@ -280,7 +280,7 @@ header {
 
 .nav-links a {
   color: var(--nav-text);
-  font-size: 1.75rem;
+  font-size: 1.6rem;
   padding: 8px 16px 0 16px;
   border-radius: 4px;
 }
@@ -297,7 +297,7 @@ header {
 }
 
 .login a {
-  font-size: 1.375rem;
+  font-size: 1.2rem;
 }
 
 .site-search {
@@ -311,7 +311,7 @@ header {
   padding: 6px 10px;
   border: 1px solid var(--nav-border);
   border-radius: 6px;
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: var(--nav-text);
 }
 
@@ -323,7 +323,7 @@ header {
   cursor: pointer;
   background: none;
   border: none;
-  font-size: 1.5625rem;
+  font-size: 1.4rem;
   padding: 6px;
   border-radius: 50%;
   transition: background 0.3s ease;
@@ -468,13 +468,13 @@ footer {
 
 .footer-logo p {
   font-family: 'Peich', Arial, sans-serif;
-  font-size: 3.125rem;
+  font-size: 2.8rem;
   margin: 0;
 }
 
 .footer-copy {
   margin-top: -20px;
-  font-size: 0.96875rem;
+  font-size: 0.9rem;
 }
 
 .footer-links {
@@ -484,7 +484,7 @@ footer {
 .footer-links a {
   color: var(--nav-text);
   margin: 0 7px;
-  font-size: 1.125rem;
+  font-size: 1rem;
 }
 
 .footer-links a:hover {
@@ -575,7 +575,7 @@ footer {
 
 .hero__content h1 {
   color: #e6cfcfCC; /* semi-transparent: CC = 80% */
-  font-size: 3rem;
+  font-size: 2.7rem;
 }
 
 @media (max-width: 768px) {
@@ -626,7 +626,7 @@ footer {
 
 #homeCarousel p {
   margin: 0;
-  font-size: 1.375rem;
+  font-size: 1.2rem;
 }
 
 /*-------------------------
@@ -665,7 +665,7 @@ footer {
 }
 
 .intro-fig-description p {
-  font-size: 1rem;
+  font-size: 0.9rem;
   margin-top: 10px;
   margin-bottom: 40px;
 }
@@ -710,7 +710,7 @@ footer {
 
 .taxonomy-sidebar .facet .facet-label h4 {
   margin: 0;
-  font-size: 1.125rem;
+  font-size: 1rem;
 }
 
 .taxonomy-sidebar .facet-options {
@@ -736,7 +736,7 @@ footer {
 
 .taxonomy-sidebar .count {
   color: var(--nav-text-light);
-  font-size: 0.875rem;
+  font-size: 0.8rem;
 }
 
 .is-updating {
@@ -773,7 +773,7 @@ footer {
 
 .right-header-container #new-profile {
   margin: 0;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 .right-header-container .image-size-toggle {
@@ -870,11 +870,12 @@ footer {
 
   .sidebar-toggle p {
     color: var(--nav-hover-bg);
-  font-size: 1rem;
+    font-size: 0.9rem;
+    margin: 0;
+  }
 
   .taxonomy-sidebar.active .taxonomy-sidebar-header,
-  .taxonomy-sidebar.active .facet
-  {
+  .taxonomy-sidebar.active .facet {
     display: block;
   }
 
@@ -941,7 +942,7 @@ footer {
 }
 
 .image-caption {
-  font-size: 1.0625rem;
+  font-size: 1rem;
   color: var(--nav-text-light);
 }
 
@@ -990,7 +991,7 @@ footer {
   top: -30px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   color: var(--success);
   opacity: 0;
   animation: copied-fade 1.2s ease forwards;
@@ -1033,7 +1034,7 @@ footer {
 }
 
 .about-fig-description p {
-  font-size: 1rem;
+  font-size: 0.9rem;
   margin-top: 10px;
 }
 
@@ -1063,7 +1064,7 @@ form select {
   border: 1px solid var(--nav-border);
   border-radius: 6px;
   padding: 6px 10px;
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: var(--nav-text);
 }
 
@@ -1146,7 +1147,7 @@ a.button-major:hover {
   grid-template-columns: 18px 1fr;
   column-gap: 20px;
   align-items: start;
-  font-size: 1rem;
+  font-size: 0.9rem;
   cursor: pointer;
   margin-bottom: 8px;
 }
@@ -1233,7 +1234,7 @@ label[for="thumbnail-clear_id"] {
 
 .image-form p {
   margin: 0;
-  font-size: 1rem;
+  font-size: 0.9rem;
   align-items: center;  
 }
 
@@ -1285,7 +1286,7 @@ label[for="thumbnail-clear_id"] {
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  font-size: 1.125rem;
+  font-size: 1rem;
 }
 
 .move-up-btn:disabled,
@@ -1335,7 +1336,7 @@ label[for="thumbnail-clear_id"] {
   padding: 10px 12px;
   border: 1px solid var(--nav-border);
   border-radius: 6px;
-  font-size: 1rem;
+  font-size: 0.9rem;
   background-color: var(--body-background);
   color: var(--nav-text);
   transition: border-color 0.2s ease;
@@ -1348,7 +1349,7 @@ label[for="thumbnail-clear_id"] {
 
 .form-errors {
   color: var(--warning);
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   margin-top: 5px;
 }
 
