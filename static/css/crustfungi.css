@@ -1037,7 +1037,12 @@ footer {
   align-items: center;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 768px) {
+  .profile-footer {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  
   #edit-profile {
     display: none;
   }
