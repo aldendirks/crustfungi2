@@ -271,6 +271,17 @@ hr {
   color: var(--warning);
 }
 
+.error-message {
+  color: var(--warning);
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+.file-error {
+  display: block;
+  color: var(--warning);
+}
+
 /*-------------------------
   Header
 -------------------------*/
