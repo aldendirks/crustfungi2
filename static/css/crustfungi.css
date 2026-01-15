@@ -273,6 +273,7 @@ hr {
 
 .error-message {
   color: var(--warning);
+  grid-column: span 2;
   font-size: 0.875rem;
   margin-top: 0.5rem;
 }
