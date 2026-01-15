@@ -1307,7 +1307,7 @@ label[for="thumbnail-clear_id"] {
 
 .field-wrapper p {
   display: grid;
-  grid-template-columns: 100px 1fr;
+  grid-template-columns: 110px 1fr;
   align-items: center;
   gap: 5px;
   margin-bottom: 10px;
