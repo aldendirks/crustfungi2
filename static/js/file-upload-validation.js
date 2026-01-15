@@ -78,25 +78,41 @@ function validateTotalUploadSize(formElement) {
 }
 
 // Initialize validation when DOM is ready
-document.addEventListener('DOMContentLoaded', function() {
+function initializeValidation() {
+    console.log('Initializing file upload validation...');
+    
     // Add validation to all file inputs
     const fileInputs = document.querySelectorAll('input[type="file"]');
+    console.log('Found file inputs:', fileInputs.length);
     
     fileInputs.forEach(input => {
         input.addEventListener('change', function() {
+            console.log('File input changed:', this.name);
             validateFileInput(this);
         });
     });
 
     // Add validation to forms on submit
     const forms = document.querySelectorAll('form[enctype="multipart/form-data"]');
+    console.log('Found forms:', forms.length);
     
     forms.forEach(form => {
         form.addEventListener('submit', function(e) {
+            console.log('Form submitting, validating total size...');
             if (!validateTotalUploadSize(this)) {
                 e.preventDefault();
                 return false;
             }
         });
     });
-});
+    
+    console.log('Validation initialization complete');
+}
+
+// Run on DOM ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeValidation);
+} else {
+    // DOM already loaded
+    initializeValidation();
+}
