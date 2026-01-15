@@ -5,14 +5,7 @@
 
 {% block content %}
 <div class="pending-approval">
-    <div class="pending-approval-box">
-        <h2>Profile submitted</h2>
-        <p>Thank you for creating a species profile! Your profile for <strong><em>{{ profile.species_name }}</em></strong> has been submitted and is pending approval before it will be displayed on the site. You can continue editing this page using the link below. <a href="{% url 'contact' %}" target="_blank">Contact</a> the admin team if you have any questions.</p>
-        
-        <div class="pending-approval-actions">
-            <p>URL to edit species profile (save to bookmarks so you can return to edit your profile): <a href="{% url 'species_profiles:edit_species' profile.slug %}">crustfungi.com{% url 'species_profiles:edit_species' profile.slug %}</a></p>
-        </div>
-        
-    </div>
+    <h2>Profile submitted</h2>
+    <p>Thank you for creating a species profile! Your profile for <strong><em>{{ profile.species_name }}</em></strong> has been submitted and is pending approval before it will be displayed on the site. You can view the draft species profile page <a href="{% url 'species_profiles:detail' slug=profile.slug %}">here</a> or continue editing the species profile <a href="{% url 'species_profiles:edit_species' profile.slug %}">here</a>. Make sure to copy down the URL of the species profile so you can access the page again before it is approved. <a href="{% url 'contact' %}" target="_blank">Contact</a> the admin team if you have any questions.</p>  
 </div>
 {% endblock %}
