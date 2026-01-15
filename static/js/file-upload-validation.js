@@ -63,10 +63,7 @@ function showFileError(input, message) {
     let errorElement = input.parentElement.querySelector('.file-error');
     if (!errorElement) {
         errorElement = document.createElement('div');
-        errorElement.className = 'file-error error-message';
-        errorElement.style.color = '#d32f2f';
-        errorElement.style.marginTop = '0.5rem';
-        errorElement.style.fontSize = '0.875rem';
+        errorElement.className = 'file-error';
         input.parentElement.appendChild(errorElement);
     }
     errorElement.textContent = message;
