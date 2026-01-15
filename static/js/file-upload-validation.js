@@ -7,6 +7,10 @@ const MAX_TOTAL_SIZE = 120 * 1024 * 1024; // 120 MB total
 const MAX_FILE_SIZE_MB = 10;
 const MAX_TOTAL_SIZE_MB = 120;
 
+const MAX_PDF_SIZE = 4 * 1024 * 1024; // 4 MB for PDFs
+const MAX_PDF_SIZE_MB = 4;
+const MAX_FILENAME_LENGTH = 100; // Maximum filename length
+
 
 // Format bytes to human-readable size
 function formatFileSize(bytes) {
@@ -27,10 +31,23 @@ function validateFileInput(input) {
         return true;
     }
 
-    // Check individual file size
+    // Check if this is a PDF field
+    const isPdfField = input.name.toLowerCase().includes('pdf') || input.id.toLowerCase().includes('pdf');
+    const maxSize = isPdfField ? MAX_PDF_SIZE : MAX_FILE_SIZE;
+    const maxSizeMb = isPdfField ? MAX_PDF_SIZE_MB : MAX_FILE_SIZE_MB;
+
+    // Check individual file size and filename length
     for (let file of input.files) {
-        if (file.size > MAX_FILE_SIZE) {
-            showFileError(input, `File "${file.name}" is too large (${formatFileSize(file.size)}). Maximum file size is ${MAX_FILE_SIZE_MB} MB.`);
+        // Check filename length
+        if (file.name.length > MAX_FILENAME_LENGTH) {
+            showFileError(input, `Filename "${file.name}" is too long (${file.name.length} characters). Maximum length is ${MAX_FILENAME_LENGTH} characters.`);
+            input.value = ''; // Clear the input
+            return false;
+        }
+
+        // Check file size
+        if (file.size > maxSize) {
+            showFileError(input, `File "${file.name}" is too large (${formatFileSize(file.size)}). Maximum file size is ${maxSizeMb} MB.`);
             input.value = ''; // Clear the input
             return false;
         }
