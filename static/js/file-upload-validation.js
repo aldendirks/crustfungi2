@@ -81,15 +81,12 @@ function validateTotalUploadSize(formElement) {
 function initializeValidation() {
     console.log('Initializing file upload validation...');
     
-    // Add validation to all file inputs
-    const fileInputs = document.querySelectorAll('input[type="file"]');
-    console.log('Found file inputs:', fileInputs.length);
-    
-    fileInputs.forEach(input => {
-        input.addEventListener('change', function() {
-            console.log('File input changed:', this.name);
-            validateFileInput(this);
-        });
+    // Use event delegation for file inputs (handles dynamic forms)
+    document.addEventListener('change', function(e) {
+        if (e.target.matches('input[type="file"]')) {
+            console.log('File input changed:', e.target.name);
+            validateFileInput(e.target);
+        }
     });
 
     // Add validation to forms on submit
