@@ -74,7 +74,7 @@
                 {% endif %}
             </div>
             <div class="literature-field-wrapper">
-                {{ literature_form.pdf.label_tag }}
+                <p>PDF:</p>
                 {{ literature_form.pdf }}
                 <p class="helper-text"><em>Optional PDF upload</em></p>
                 {% if literature_form.pdf.errors %}
@@ -86,7 +86,7 @@
                 {% endif %}
             </div>
             <div class="literature-field-wrapper">
-                {{ literature_form.url.label_tag }}
+                <p>URL:</p>
                 {{ literature_form.url }}
                 <p class="helper-text"><em>Journal page, DOI URL, etc.</em></p>
                 {% if literature_form.url.errors %}

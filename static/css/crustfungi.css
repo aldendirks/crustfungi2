@@ -271,16 +271,15 @@ hr {
   color: var(--warning);
 }
 
-.error-message {
-  color: var(--warning);
+.file-error {
+  color: var(--body-background);
+  background-color: var(--warning);
+  border-radius: 6px;
+  padding: 10px 12px;
   grid-column: span 2;
   font-size: 0.875rem;
-  margin-top: 0.5rem;
-}
-
-.file-error {
-  display: block;
-  color: var(--warning);
+  margin: 0;
+  margin-bottom: 15px;
 }
 
 /*-------------------------
