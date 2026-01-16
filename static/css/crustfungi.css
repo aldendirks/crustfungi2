@@ -1269,6 +1269,11 @@ label[for="thumbnail-clear_id"] {
   display: none;
 }
 
+/* Make thumbnail input span full width when empty (no currently/change text) */
+p:has(#id_thumbnail):not(:has(a)) {
+  grid-column: span 2;
+}
+
 #image-formset {
   list-style: none;
   padding: 0;
