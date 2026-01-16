@@ -1191,7 +1191,7 @@ a.button-major:hover {
   Species Forms
 -------------------------*/
 /* Target first helper text paragraph only */
-.species-form p:first-of-type {
+.species-form .helper-text #helper-text-intro {
   margin-bottom: -10px;
 }
 
