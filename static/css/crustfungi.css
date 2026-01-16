@@ -639,6 +639,15 @@ footer {
   .hero {
     height: 300px;
   }
+
+  .index h1 {
+    font-size: 1.5rem;
+  }
+
+  .index h2 {
+    font-size: 1.3rem;
+    margin-top: 10px;
+  }
 }
 
 #homeCarousel {
