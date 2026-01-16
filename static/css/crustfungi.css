@@ -859,6 +859,10 @@ footer {
   .species-list__header .right-container .image-size-toggle {
     display: none;
   }
+
+  .species-list__header #species-filter {
+    margin: -20px 0 10px 0;
+  }
 }
 
 /* The width of this is defined in a JS resize function in main.js */
