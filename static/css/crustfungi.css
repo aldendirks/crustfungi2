@@ -1107,13 +1107,11 @@ footer {
   }
 }
 
-
 /*-------------------------
   Tutorial
 -------------------------*/
-.tutorial img {
-  max-width: 960px;
-  width: 100%;
+.tutorial {
+  margin-bottom: 20px;
 }
 
 /* ----------------------------------------*/
@@ -1199,6 +1197,10 @@ a.button-major:hover {
 /*-------------------------
   Species Forms
 -------------------------*/
+.species-form .helper-text {
+  margin-bottom: -10px;
+}
+
 .tox-tinymce {
   margin-bottom: 20px;
 }
