@@ -68,8 +68,8 @@ document.addEventListener("DOMContentLoaded", applyStoredImageSize);
 // Resize species list container
 // =========================================================
 function resizeSpeciesListContainer() {
-    const header = document.querySelector(".species-list-header");
-    const container = document.querySelector(".species-list-container");
+    const header = document.querySelector(".species-list__header");
+    const container = document.querySelector(".species-list__container");
     if (!header || !container) return;
 
     const windowWidth = window.innerWidth;
@@ -116,8 +116,8 @@ resizeSpeciesListContainer();
 
 // Reveal after initial layout
 document.addEventListener("DOMContentLoaded", () => {
-    const header = document.querySelector(".species-list-header");
-    const container = document.querySelector(".species-list-container");
+    const header = document.querySelector(".species-list__header");
+    const container = document.querySelector(".species-list__container");
     if (!header || !container) return;
 
     requestAnimationFrame(() => {
@@ -134,8 +134,8 @@ window.addEventListener("resize", resizeSpeciesListContainer);
 // =========================================================
 document.addEventListener("DOMContentLoaded", () => {
     const sidebar = document.querySelector(".taxonomy-sidebar");
-    const listContainer = document.querySelector(".species-list-container");
-    const header = document.querySelector(".species-list-header");
+    const listContainer = document.querySelector(".species-list__container");
+    const header = document.querySelector(".species-list__header");
 
     if (!sidebar || !listContainer || !header) return;
 
@@ -190,6 +190,15 @@ document.addEventListener("DOMContentLoaded", () => {
                     listContainer.style.visibility = "visible";
                     header.style.visibility = "visible";
                     sidebar.style.visibility = "visible";
+
+                    // Close sidebar on small screens after update completes
+                    if (window.innerWidth <= 768) {
+                        taxonomySidebar.classList.remove("active");
+                        const toggleButton = document.querySelector(".sidebar-toggle");
+                        if (toggleButton) {
+                            toggleButton.classList.remove("active");
+                        }
+                    }
                 });
             })
             .catch((err) => {

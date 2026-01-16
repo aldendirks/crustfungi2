@@ -7,16 +7,29 @@
 {% block content %}
 <div class="about">
     <h2>About CrustFungi.Com</h2>
-    <p>My name is <a href="https://www.aldendirks.com/" target="_blank">Alden Dirks</a>, and I am the creator of CrustFungi.Com. CrustFungi.Com aims to be the comprehensive web-based resource on crust fungi. Inspired by Michael Kuo's <a href="https://www.mushroomexpert.com/index.html" target="_blank">MushroomExpert.Com</a> but with an explicit focus on crusts, my goal is to provide the public a high-quality, scientifically accurate educational platform on these understudied and overlooked but hyperdiverse fungi. Launched in 2018, a few crust fungi species profiles were added over the years, but the site remained limited in scope.</p>
+    <p>My name is <a href="https://www.aldendirks.com/" target="_blank">Alden Dirks</a>, and I am the creator of CrustFungi.Com. I am a professional mycologist with expertise in fungal genomics and systematics. While fascinated by all members of "kindom" <i>Fungi</i>, I am particularly fond of fungi in the <i>Pezizales</i>, jelly fungi such as <i>Phaeotremella</i> spp., and &mdash; of course &mdash; crusts.</p>
+    <div class="two-column-layout">
+        <div>
+            <h3>The beginning of CrustFungi.Com</h3>
+            <p>In 2017, while living in Madison, Wisconsin, I began learning from corticiologist Karen Nakasone, who taught me much of what I know about crusts. Recognizing that there was very little information online on the subject, I decided to create CrustFungi.Com to provide the public a high-quality educational platform on these understudied organisms. Launched in 2018, CrustFungi.Com was originally a simple website built with HTML and CSS. I added a few species profiles over the years, but the site remained limited in scope (Figure 1).</p>
+        </div>
+        <div class="figure">
+            <img src="{% static 'images/about/original_homepage.png' %}" alt="Original CrustFungi.Com website homepage">
+            <div class="fig-description">
+                <p><strong>Figure 1.</strong> The original homepage of CrustFungi.Com.</p>
+            </div>
+        </div>
+    </div>
     <h3>CrustFungi.Com 2.0</h3>
-    <p>During a period of unemployment in late 2025, I completely redesigned CrustFungi.Com as modern web app using the <a href="https://www.djangoproject.com/" target="_blank">Django web framework</a>. A search functionality was added, and a taxonomy filter was implemented. Most importantly, species profiles are now stored in a database, and any user can add new profiles to the website. I hope that CrustFungi.Com will grow faster and better capture the many different crust species of the world as a crowdsourced, community endeavor.</p>
+    <p>During a period of unemployment in late 2025, I completely rebuilt CrustFungi.Com as modern web app using the <a href="https://www.djangoproject.com/" target="_blank">Django web framework</a>. Any user can now add new profiles to the website.This endeavor was facilitated by the use of large language models. I believe "AI" will doom humanity, if not just for its worsening of the climate crisis, but I must admit these technologies made this effort feasible. I hope that CrustFungi.Com will grow faster and better capture the many different crust species of the world as a crowdsourced, community endeavor.</p>
     <h3>Aesthetics</h3>
     <p>The new websites retains many of the aesthetics of the first version. The logo of CrustFungi.Com is a linoleum print that I made some time ago — it is meant to represent a crust species like <i>Phlebia radiata</i> or the like. The navigation links are written in <a href="https://www.behance.net/gallery/61877879/Peich-linocut-typeface-font?locale=en_US">Peich linocut typeface font</a> to match the logo design. Thanks Robert Young for this beautiful font!</p>
     <h3>The future of CrustFungi.Com</h3>
-    <p>My future goals for CrustFungi.Com include creating a custom crust ITS database and BLAST portal, linking species profiles to specific observations (e.g., iNaturalist observations), and generating distribution maps for each species.</p>
-    <img src="{% static 'images/about/original_homepage.png' %}" alt="Original CrustFungi.Com website homepage">
-    <div class="about-fig-description">
-        <p><strong>Figure 1.</strong> The original homepage of CrustFungi.Com.</p>
-    </div>
+    <p>My future goals for CrustFungi.Com include creating a custom crust ITS database and BLAST portal, linking species profiles to specific observations (e.g., iNaturalist observations), and generating distribution maps.</p>
+    <section style="display: none;">
+        <h3>Support my work</h3>
+        <p>If you find CrustFungi.Com useful, please consider supporting this work through a donation. Your contribution helps offset cloud hosting costs, which are about $10 per month &mdash; that's almost $1000 over the past eight years. Thank you for your support!</p>
+    </section>
+    <br>
 </div>
 {% endblock content %}

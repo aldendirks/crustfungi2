@@ -33,8 +33,8 @@
             <h1 class="common-name">{{ profile.common_name|title }}</h1>
         {% endif %}
         <h2 class="species-name"><i>{{ profile.species_name }}</i> {{ profile.authorship }}</h2>
-        <div class="taxonomy-container">
-            <h4 class="taxonomy">
+        <div class="taxonomy">
+            <h4 class="taxonomy__list">
                 <a href="{% url 'species_profiles:index' %}?kingdom={{ profile.tax_kingdom|urlencode }}"><i>{{ profile.tax_kingdom }}</i></a> > 
                 <a href="{% url 'species_profiles:index' %}?phylum={{ profile.tax_phylum|urlencode }}"><i>{{ profile.tax_phylum }}</i></a> > 
                 <a href="{% url 'species_profiles:index' %}?class={{ profile.tax_class|urlencode }}"><i>{{ profile.tax_class }}</i></a> > 
@@ -43,8 +43,8 @@
                 <a href="{% url 'species_profiles:index' %}?genus={{ profile.tax_genus|urlencode }}"><i>{{ profile.tax_genus }}</i></a>
             </h4> 
             {% if profile.mycobank %}
-                <a href="https://www.mycobank.org/MB/{{ profile.mycobank }}"><img src="{% static 'images/icons/MB_icon_60.png' %}" alt="MycoBank icon" class="tax-icon"></a>
-                <a href="https://www.indexfungorum.org/names/NamesRecord.asp?RecordID={{ profile.mycobank }}"><img src="{% static 'images/icons/index_fungorum_icon_60.png' %}" alt="IndexFungorum icon" class="tax-icon"></a>
+                <a href="https://www.mycobank.org/MB/{{ profile.mycobank }}"><img src="{% static 'images/icons/MB_icon_60.png' %}" alt="MycoBank icon" class="taxonomy__icon"></a>
+                <a href="https://www.indexfungorum.org/names/NamesRecord.asp?RecordID={{ profile.mycobank }}"><img src="{% static 'images/icons/index_fungorum_icon_60.png' %}" alt="IndexFungorum icon" class="taxonomy__icon"></a>
             {% endif %}
         </div>
     </section>
@@ -108,9 +108,6 @@
     <section class="profile-citation">
         <h3>Citation</h3>
         <p id="citation-text">{{ citation|safe }}</p>
-        <button id="copy-citation-btn" class="button-major">
-            Copy citation
-    </button>
     </section>
     <section class="profile-footer">
         <div class="profile-footer-item">
