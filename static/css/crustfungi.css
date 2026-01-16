@@ -1270,7 +1270,7 @@ label[for="thumbnail-clear_id"] {
 }
 
 /* Make thumbnail input span full width when empty (no currently/change text) */
-p:has(#id_thumbnail):not(:has(a)) {
+p:has(#id_thumbnail):not(:has(a)) input {
   grid-column: span 2;
 }
 
