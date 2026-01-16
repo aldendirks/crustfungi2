@@ -7,28 +7,42 @@
 {% block content %}
 <div class="tutorial">
     <h2>Tutorial for creating and editing species profiles</h2>
+    <p>CrustFungi.Com is a crowdsourced endeavor. Your contributions are greatly appreciated. Below you can find information on each section of the species profile form to help you create new species profiles. But first, here are some general guidelines for creating new species profiles on CrustFungi.Com.</p>
+    <ol>
+        <li>Before making a new species profile, search the species page to make sure a profile for that species or any synonymous taxa does not yet exist.</li>
+        <li>Species profiles should be constructed with reference to one or more vouchered specimens with microscopic information and ITS DNA barcode data. The use of barcoded specimens ensures accurate assignment of species names and the ability to update species profiles as new data become available.</li>
+        <li>All the information for a species profile should be prepared beforehand. The first save of a new species profile should be as close to its final form as possible. While species profiles can be edited, published profiles are not intended to serve as drafts that remain incomplete for long periods of time.</li>
+        <li>New species profiles require approval before they are publicly visible on the species page.</li>
+    </ol>
     <section class="tutorial-nomenclature">
         <h3>Nomenclature</h3>
+        <p>The nomenclature section includes the species' <strong>scientific name</strong>, <strong>authorship information</strong>, <strong>year of publication</strong>, <strong>common name</strong>, and <strong>MycoBank accession number</strong>. Most of this information can be acquired from nomenclatural databases such as <a href="https://www.mycobank.org/" target="_blank">MycoBank</a> and <a href="https://www.indexfungorum.org/" target="_blank"> Index Fungorum</a>. I recommend searching for your species of interest at <a href="https://www.mycobank.org/Simple%20names%20search" target="_blank">MycoBank</a> to acquire the species name, authorship information, year of publication, and accession number.</p> 
         <h4>Species Name</h4>
+        <p>The species name is the Latin binomial. Provisional species codes in the format of Genus sp. 'temp-code' (e.g., <i>Xenasmatella</i> sp. 'NJ01') are acceptable.</p>
         <h4>Common Name</h4>
+        <p>Mosts crusts do not have a common name, but some do. I like to refer to iNaturalist to see if there is a good common name in use for a particular species. You are welcome to invent your own, but it should be good.</p>
         <h4>MycoBank Accession Number</h4>
-        <p><a href="https://www.mycobank.org/" target="_blank">MycoBank</a> and <a href="https://www.indexfungorum.org/" target="_blank"> Index Fungorum</a> are nomenclatural databases. They store information on species names, authorship, publication information, and more. The two databases are linked such that they refer to the same taxon with the same accession number. <strong>I highly encourage you to enter a MycoBank accession number in your species profile.</strong> When one is included, icons with links to the associated MycoBank and Index Fungorum pages are displayed in the species profile taxonomy section. This is not a required field only because provisional species names are unpublished and do not have MycoBank numbers. To find a MycoBank accession number (and other useful nomenclatural information), search for your species of interest at <a href="https://www.mycobank.org/Simple%20names%20search" target="_blank">MycoBank</a>. Look for the "MycoBank #" field in the General Information section (see Figure 1).</p>
-        <img src="{% static 'images/tutorial/MycoBank_example.png' %}">
+        <p>MycoBank and Index Fungorum are linked such that they refer to the same taxon with the same accession number. I highly encourage you to enter a MycoBank accession number in your species profile. When one is included, icons with links to the associated MycoBank and Index Fungorum pages are displayed in the species profile taxonomy section. This is not a required field only because provisional species names are unpublished and do not have MycoBank numbers.</p>
     </section>
     <section class="tutorial-taxonomy">
         <h3>Taxonomy</h3>
+        Taxonomic information can also be found at MycoBank. However, the information there is not always correct or up-to-date. One may need to interpret the latest systematics research to determine the best taxonomic classification of a species. 
     </section>
     <section class="tutorial-description">
         <h3>Description</h3>
+        <p>The description fields are what populate the body of the species profile. <strong>Description</strong> is the opening paragraph of the species profile. <strong>Ecology</strong>, <strong>morphology</strong>, <strong>taste and odor</strong>, <strong>chemical reactions</strong>, <strong>spore print</strong>, and <strong>distribution</strong> are short, labelled paragraphs that follow the description. If information is missing for any of these topics, one can write "not determined". Microscopic information is where detailed microscopical characteristics are described. Please refer to already published species profiles for examples.</p>
     </section>
     <section class="tutorial-specimens">
         <h3>Studied Specimens</h3>
+        <p>A list of specimens that were studied to create the species profile. Please refer to already published species profiles for examples.</p>
     </section>
     <section class="tutorial-references">
         <h3>References</h3>
+        <p>References should be selected from the literature list by clicking the checkboxes. New references can be added and will be automatically checked for the current species profile. Reference PDF files should not exceed 4 MB in size or have titles greater than 100 characters. If these conditions are not met, an error message will be displayed.</p>
     </section>
     <section class="tutorial-images">
         <h3>Images</h3>
+        <p>Here you can upload a thumbnail image to be displayed on the species page and gallery images that are displayed at the top of the species profile. Images should be in landscape orientation and cannot exceed 10 MB. Each gallery image should be accompanied by a short caption.</p>
     </section>
 </div>
 {% endblock content %}
