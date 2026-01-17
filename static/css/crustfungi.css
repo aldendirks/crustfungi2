@@ -66,6 +66,7 @@ html.dark-mode img[src="/static/images/species/default_species.png"] {
 
 html {
   scrollbar-color: var(--nav-border) var(--body-background);
+  overflow-x: hidden; /* prevent horizontal scroll from 100vw elements */
 }
 
 .button-major {
@@ -158,7 +159,6 @@ body {
   background-color: var(--body-background);
   color: var(--nav-text);
   line-height: 1.6;
-  overflow-x: hidden; /* prevent horizontal scroll from 100vw elements */
 }
 
 main {
