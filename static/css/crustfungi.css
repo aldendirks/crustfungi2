@@ -1344,8 +1344,8 @@ p:has(#id_thumbnail):not(:has(a)) input {
 }
 
 .delete-image-btn {
-  background-color: var(--warning);
-  margin-bottom: 30px;
+  fill: none;
+  stroke: currentColor;
 }
 
 .delete-image-btn,
