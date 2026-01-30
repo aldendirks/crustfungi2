@@ -1336,6 +1336,13 @@ p:has(#id_thumbnail):not(:has(a)) input {
   justify-content: center;
 }
 
+.image-buttons button svg {
+  width: 16px;
+  height: 16px;
+  display: block;
+  pointer-events: none;
+}
+
 .delete-image-btn {
   background-color: var(--warning);
   margin-bottom: 30px;
