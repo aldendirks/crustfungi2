@@ -1344,7 +1344,11 @@ p:has(#id_thumbnail):not(:has(a)) input {
 }
 
 .delete-image-btn {
-  fill: none;
+  background-color: var(--warning);
+  margin-bottom: 30px;
+}
+
+.delete-image-btn svg path {
   stroke: currentColor;
 }
 
