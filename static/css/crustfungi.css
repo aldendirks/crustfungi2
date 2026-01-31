@@ -1080,6 +1080,10 @@ footer {
 /*-------------------------
   Keys
 -------------------------*/
+.key-section {
+  margin-bottom: 30px;
+}
+
 .couplet-item {
   margin-bottom: 15px;
 }
