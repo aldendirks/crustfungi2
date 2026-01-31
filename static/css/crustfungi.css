@@ -332,7 +332,7 @@ header {
 
 .nav-links a {
   color: var(--nav-text);
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   padding: 8px 16px 0 16px;
   border-radius: 6px;
 }
@@ -1071,6 +1071,44 @@ footer {
   
   #edit-profile {
     display: none;
+  }
+}
+
+/*-------------------------
+  Keys
+-------------------------*/
+.couplet-item {
+  margin-bottom: 15px;
+}
+
+.choice {
+  display: flex;
+  gap: 10px;
+}
+
+.couplet-label {
+  flex-shrink: 0;
+}
+
+.statement {
+  flex-grow: 0;
+}
+
+.dots {
+  flex: 1;
+  border-top: 2px dotted var(--content-h2);
+  margin-top: 20px;
+  min-width: 50px;
+}
+
+.destination {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .dots {
+    visibility: hidden;
   }
 }
 
