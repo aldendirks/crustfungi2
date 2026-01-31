@@ -222,6 +222,7 @@ h2 {
 @media (max-width: 768px) {
   .index h1,
   .intro h1,
+  .keys h1,
   .glossary h1,
   .literature h1,
   .about h2,
