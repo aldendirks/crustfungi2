@@ -43,8 +43,10 @@
                 <a href="{% url 'species_profiles:index' %}?genus={{ profile.tax_genus|urlencode }}"><i>{{ profile.tax_genus }}</i></a>
             </h4> 
             {% if profile.mycobank %}
-                <a href="https://www.mycobank.org/MB/{{ profile.mycobank }}"><img src="{% static 'images/icons/MB_icon_60.png' %}" alt="MycoBank icon" class="taxonomy__icon"></a>
-                <a href="https://www.indexfungorum.org/names/NamesRecord.asp?RecordID={{ profile.mycobank }}"><img src="{% static 'images/icons/index_fungorum_icon_60.png' %}" alt="IndexFungorum icon" class="taxonomy__icon"></a>
+                <span class="taxonomy__icons">
+                    <a href="https://www.mycobank.org/MB/{{ profile.mycobank }}"><img src="{% static 'images/icons/MB_icon_60.png' %}" alt="MycoBank icon" class="taxonomy__icon"></a>
+                    <a href="https://www.indexfungorum.org/names/NamesRecord.asp?RecordID={{ profile.mycobank }}"><img src="{% static 'images/icons/index_fungorum_icon_60.png' %}" alt="IndexFungorum icon" class="taxonomy__icon"></a>
+                </span>
             {% endif %}
         </div>
     </section>

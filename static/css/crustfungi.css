@@ -1067,6 +1067,15 @@ footer {
 }
 
 @media (max-width: 768px) {
+  .species-name {
+    line-height: 0.8;
+  }
+
+  .taxonomy {
+    display: flex;
+    flex-direction: column;
+  }
+
   .profile-footer {
     display: flex;
     flex-direction: column-reverse;
