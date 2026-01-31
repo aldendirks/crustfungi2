@@ -520,7 +520,7 @@ footer {
 
 .footer-logo p {
   font-family: 'Peich', Arial, sans-serif;
-  font-size: 2.8rem;
+  font-size: 2.6rem;
   margin: 0;
 }
 
@@ -536,6 +536,7 @@ footer {
 .footer-links a {
   color: var(--nav-text);
   margin: 0 7px;
+  font-size: 0.9rem;
 }
 
 .footer-links a:hover {
@@ -545,6 +546,7 @@ footer {
 .footer-tagline {
   margin-top: 6px;
   font-style: italic;
+  font-size: 0.9rem;
 }
 
 .footer-social {
