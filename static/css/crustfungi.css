@@ -1069,7 +1069,7 @@ footer {
 @media (max-width: 768px) {
   .species-name {
     line-height: 1;
-    margin: 5px 0;
+    margin: 30px 0;
   }
 
   .taxonomy {
