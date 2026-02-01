@@ -11,11 +11,13 @@
     <p class="helper-text">Thanks to <a href="https://produccioncientifica.usal.es/investigadores/57507/detalle" target="_blank">Dr. Sergio Pérez Gorjón</a> for creating these dichotomous keys to corticioid genera and permitting their inclusion on CrustFungi.Com. The keys below are slightly updated from their original publication in 2020. Start with the main key to be guided to more specific keys for groups of morphologically similar genera.</p>
     {% for key in keys %}
         <div class="key-section" id="{{ key.slug }}">
-            {% if key.description %}
-                <h3>{{ key.title }}</h3>
-                <p class="key-description helper-text"><i>{{ key.description }}.</i></p>
+            {% if key.short_description %}
+                <h3>{{ key.title }}: {{ key.short_description }}</h3>
             {% else %}
                 <h3>{{ key.title }}</h3>
+            {% endif %}
+            {% if key.description %}
+                <p class="key-description helper-text"><i>{{ key.description }}.</i></p>
             {% endif %}
             
             {% if key.couplets.all %}
