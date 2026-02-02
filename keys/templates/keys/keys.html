@@ -5,6 +5,10 @@
 {% block seo_title %}Keys to Genera - CrustFungi.Com{% endblock %}
 {% block seo_description %}Dichotomous keys to identify crust fungi to genera.{% endblock %}
 
+{% block extra_js %}
+    <script src="{% static 'js/keys.js' %}" defer></script>
+{% endblock %}
+
 {% block content %}
 <div class="keys">
     <h1>Keys to Corticioid Genera</h1>
@@ -26,9 +30,9 @@
                         <div class="couplet-item" id="{{ key.slug }}-couplet-{{ couplet.couplet_number }}">
                             <div class="choice choice-a">
                                 <span class="couplet-label">{{ couplet.couplet_number }}A.</span>
-                                <div class="statement-with-dots">
-                                    <span class="statement-text">{{ couplet.statement_a }}</span>
-                                    <span class="dots"></span>
+                                <div class="statement-container">
+                                    <span class="statement">{{ couplet.statement_a }}</span>
+                                    <span class="leader-dots" aria-hidden="true"></span>
                                 </div>
                                 <span class="destination">
                                     {% if couplet.next_couplet_a %}
@@ -46,9 +50,9 @@
                             </div>
                             <div class="choice choice-b">
                                 <span class="couplet-label">{{ couplet.couplet_number }}B.</span>
-                                <div class="statement-with-dots">
-                                    <span class="statement-text">{{ couplet.statement_b }}</span>
-                                    <span class="dots"></span>
+                                <div class="statement-container">
+                                    <span class="statement">{{ couplet.statement_b }}</span>
+                                    <span class="leader-dots" aria-hidden="true"></span>
                                 </div>
                                 <span class="destination">
                                     {% if couplet.next_couplet_b %}
