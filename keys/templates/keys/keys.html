@@ -26,8 +26,10 @@
                         <div class="couplet-item" id="{{ key.slug }}-couplet-{{ couplet.couplet_number }}">
                             <div class="choice choice-a">
                                 <span class="couplet-label">{{ couplet.couplet_number }}A.</span>
-                                <span class="statement">{{ couplet.statement_a }}</span>
-                                <span class="dots"></span>
+                                <div class="statement-with-dots">
+                                    <span class="statement-text">{{ couplet.statement_a }}</span>
+                                    <span class="dots"></span>
+                                </div>
                                 <span class="destination">
                                     {% if couplet.next_couplet_a %}
                                         <a href="#{{ key.slug }}-couplet-{{ couplet.next_couplet_a.couplet_number }}">{{ couplet.next_couplet_a.couplet_number }}</a>
@@ -44,8 +46,10 @@
                             </div>
                             <div class="choice choice-b">
                                 <span class="couplet-label">{{ couplet.couplet_number }}B.</span>
-                                <span class="statement">{{ couplet.statement_b }}</span>
-                                <span class="dots"></span>
+                                <div class="statement-with-dots">
+                                    <span class="statement-text">{{ couplet.statement_b }}</span>
+                                    <span class="dots"></span>
+                                </div>
                                 <span class="destination">
                                     {% if couplet.next_couplet_b %}
                                         <a href="#{{ key.slug }}-couplet-{{ couplet.next_couplet_b.couplet_number }}">{{ couplet.next_couplet_b.couplet_number }}</a>

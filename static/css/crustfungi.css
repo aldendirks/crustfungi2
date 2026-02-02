@@ -1097,7 +1097,7 @@ footer {
   Keys
 -------------------------*/
 .key-section {
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
 .couplet-item {
@@ -1105,28 +1105,34 @@ footer {
 }
 
 .choice {
-  display: flex;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  column-gap: 10px;
+  align-items: end;
 }
 
-.couplet-label {
-  flex-shrink: 0;
+.statement-with-dots {
+  display: inline-flex;
+  align-items: baseline;
+  min-width: 0; /* allows wrapping */
 }
 
-.statement {
-  flex-grow: 0;
+.statement-text {
+  white-space: normal;
 }
 
 .dots {
   flex: 1;
-  border-top: 2px dotted var(--content-h2);
-  margin-top: 20px;
-  min-width: 50px;
+  border-bottom: 2px dotted var(--content-h2);
+  margin-left: 8px;
+  position: relative;
+  top: -0.15em;
+  max-width: 12em;
 }
 
 .destination {
-  flex-shrink: 0;
   white-space: nowrap;
+  padding-left: 4px;
 }
 
 @media (max-width: 768px) {
