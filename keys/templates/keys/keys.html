@@ -39,7 +39,6 @@
                                         <a href="#{{ key.slug }}-couplet-{{ couplet.next_couplet_a.couplet_number }}">{{ couplet.next_couplet_a.couplet_number }}</a>
                                     {% elif couplet.terminal_genus_a %}
                                         {% if couplet.terminal_genus_a|genus_exists %}
-                                            <strong>
                                             <em><a href="{% url 'species_profiles:index' %}?genus={{ couplet.terminal_genus_a }}">{{ couplet.terminal_genus_a }}</a></em>
                                         {% else %}
                                             <em>{{ couplet.terminal_genus_a }}</em>
