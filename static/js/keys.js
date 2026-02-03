@@ -55,7 +55,18 @@ function updateLeaderDots() {
   });
 }
 
+// Debounce helper
+function debounce(func, delay) {
+  let timeoutId;
+  return function(...args) {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => func(...args), delay);
+  };
+}
+
+const debouncedUpdateLeaderDots = debounce(updateLeaderDots, 250);
+
 // Run initially
 document.addEventListener("DOMContentLoaded", updateLeaderDots);
-window.addEventListener("resize", () => requestAnimationFrame(updateLeaderDots));
+window.addEventListener("resize", debouncedUpdateLeaderDots);
 if (document.fonts) document.fonts.ready.then(updateLeaderDots);
