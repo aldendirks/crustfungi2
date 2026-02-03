@@ -1132,8 +1132,9 @@ footer {
 }
 
 .destination {
-  max-width: 200px;
+  max-width: 400px;
   flex: 0 0 auto;
+  white-space: nowrap;
   align-self: flex-end;
 }
 
