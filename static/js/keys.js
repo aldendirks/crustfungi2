@@ -68,5 +68,12 @@ const debouncedUpdateLeaderDots = debounce(updateLeaderDots, 250);
 
 // Run initially
 document.addEventListener("DOMContentLoaded", updateLeaderDots);
-window.addEventListener("resize", debouncedUpdateLeaderDots);
+window.addEventListener("resize", () => {
+  // Clear dots immediately on resize
+  document.querySelectorAll(".leader-dots").forEach(dotsSpan => {
+    dotsSpan.textContent = "";
+  });
+  // Recalculate after debounce
+  debouncedUpdateLeaderDots();
+});
 if (document.fonts) document.fonts.ready.then(updateLeaderDots);
