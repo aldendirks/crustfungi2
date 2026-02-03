@@ -1133,10 +1133,21 @@ footer {
 
 .destination {
   flex: 0 0 auto;
-  white-space: nowrap;
   align-self: flex-end;
+  white-space: nowrap;
 }
 
+@media (max-width: 768px) {
+  .destination {
+    flex: 1 1 auto;
+    align-self: flex-start;
+    white-space: normal;
+  }
+
+  .leader-dots {
+    display: none;
+  }
+}
 
 /*-------------------------
   About

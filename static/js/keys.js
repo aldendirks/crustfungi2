@@ -7,6 +7,9 @@ function measureDotWidth(font) {
 }
 
 function updateLeaderDots() {
+  // Skip dots calculation on mobile
+  if (window.innerWidth <= 768) return;
+
   document.querySelectorAll(".choice").forEach(choice => {
     const statementContainer = choice.querySelector(".statement-container");
     const statement = choice.querySelector(".statement");
