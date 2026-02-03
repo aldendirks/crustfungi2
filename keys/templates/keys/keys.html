@@ -39,7 +39,7 @@
                                         <a href="#{{ key.slug }}-couplet-{{ couplet.next_couplet_a.couplet_number }}">{{ couplet.next_couplet_a.couplet_number }}</a>
                                     {% elif couplet.terminal_genus_a %}
                                         {% if couplet.terminal_genus_a|genus_exists %}
-                                            <em><a href="{% url 'species_profiles:index' %}?genus={{ couplet.terminal_genus_a }}">{{ couplet.terminal_genus_a }}</a></em>
+                                            <em><a href="{% url 'species_profiles:index' %}?genus={{ couplet.terminal_genus_a|extract_genus }}">{{ couplet.terminal_genus_a }}</a></em>
                                         {% else %}
                                             <em>{{ couplet.terminal_genus_a }}</em>
                                         {% endif %}
@@ -59,7 +59,7 @@
                                         <a href="#{{ key.slug }}-couplet-{{ couplet.next_couplet_b.couplet_number }}">{{ couplet.next_couplet_b.couplet_number }}</a>
                                     {% elif couplet.terminal_genus_b %}
                                         {% if couplet.terminal_genus_b|genus_exists %}
-                                            <em><a href="{% url 'species_profiles:index' %}?genus={{ couplet.terminal_genus_b }}">{{ couplet.terminal_genus_b }}</a></em>
+                                            <em><a href="{% url 'species_profiles:index' %}?genus={{ couplet.terminal_genus_b|extract_genus }}">{{ couplet.terminal_genus_b }}</a></em>
                                         {% else %}
                                             <em>{{ couplet.terminal_genus_b }}</em>
                                         {% endif %}
