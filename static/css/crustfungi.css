@@ -693,7 +693,7 @@ footer {
 
 /* Hide carousel arrows on mobile */
 @media (max-width: 768px) {
-  #homeCarousel .f-carousel__arrow {
+  #homeCarousel button {
     display: none;
   }
 }
