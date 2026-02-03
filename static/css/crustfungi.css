@@ -691,6 +691,13 @@ footer {
   font-size: 1.2rem;
 }
 
+/* Hide carousel arrows on mobile */
+@media (max-width: 768px) {
+  #homeCarousel .f-carousel__arrow {
+    display: none;
+  }
+}
+
 /*-------------------------
   Introduction
 -------------------------*/
