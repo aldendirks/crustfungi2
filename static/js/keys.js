@@ -6,6 +6,10 @@ function measureDotWidth(font) {
   return ctx.measureText(".").width;
 }
 
+// Cache for dot width to avoid recalculation
+let cachedDotWidth = null;
+let cachedFont = null;
+
 function updateLeaderDots() {
   // Skip dots calculation on mobile
   if (window.innerWidth <= 768) return;
@@ -38,10 +42,15 @@ function updateLeaderDots() {
     const availableWidth = destRect.left - lastRect.right - 8; // padding
     if (availableWidth <= 0) return;
 
-    // Compute exact dot width
+    // Compute exact dot width (use cache if font hasn't changed)
     const style = window.getComputedStyle(statement);
     const font = `${style.fontWeight} ${style.fontSize} ${style.fontFamily}`;
-    const dotWidth = measureDotWidth(font);
+    let dotWidth = cachedDotWidth;
+    if (!dotWidth || font !== cachedFont) {
+      dotWidth = measureDotWidth(font);
+      cachedDotWidth = dotWidth;
+      cachedFont = font;
+    }
 
     const numDots = Math.floor(availableWidth / dotWidth);
     dotsSpan.textContent = ".".repeat(numDots);
@@ -76,4 +85,11 @@ window.addEventListener("resize", () => {
   // Recalculate after debounce
   debouncedUpdateLeaderDots();
 });
-if (document.fonts) document.fonts.ready.then(updateLeaderDots);
+if (document.fonts) {
+  document.fonts.ready.then(() => {
+    // Clear cache when fonts load (they may have changed)
+    cachedDotWidth = null;
+    cachedFont = null;
+    updateLeaderDots();
+  });
+}
