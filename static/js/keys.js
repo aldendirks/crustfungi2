@@ -64,7 +64,7 @@ function debounce(func, delay) {
   };
 }
 
-const debouncedUpdateLeaderDots = debounce(updateLeaderDots, 250);
+const debouncedUpdateLeaderDots = debounce(updateLeaderDots, 100);
 
 // Run initially
 document.addEventListener("DOMContentLoaded", updateLeaderDots);
