@@ -1156,6 +1156,10 @@ footer {
   color: var(--body-background);
 }
 
+.keys-content {
+  min-width: 0;
+}
+
 .keys-content h3:first-of-type {
   margin-top: 0;
 }
