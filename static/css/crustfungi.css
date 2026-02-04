@@ -1114,7 +1114,6 @@ footer {
 .keys-toc {
   position: sticky;
   top: 50px;
-  height: fit-content;
   padding-right: 15px;
   border-right: 2px solid var(--nav-border);
   margin-top: 50px;
