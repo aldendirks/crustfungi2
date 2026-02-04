@@ -96,7 +96,7 @@ if (document.fonts) {
 
 // Table of Contents - Active Link Highlighting
 function updateActiveTocLink() {
-  const sections = document.querySelectorAll('.key-section, #references');
+  const sections = document.querySelectorAll('.key-section');
   const tocLinks = document.querySelectorAll('.toc-link');
 
   let activeSection = null;

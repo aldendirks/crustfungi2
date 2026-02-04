@@ -95,25 +95,26 @@
                     {% endif %}
                 </div>
             {% endfor %}
-            <section class="references" id="references">
-                <h2>References</h2>
-                <ol>
-                    {% for ref in references %}
-                        <li class="reference">
-                            <p>
-                            {{ ref.citation|safe }} 
-                            {% if ref.pdf %}
-                                <a href="{{ ref.pdf.url }}" class="pdf">PDF</a> 
-                            {% endif %}
-                            {% if ref.url %}
-                                <a href="{{ ref.url }}" class="url">Link</a> 
-                            {% endif %}
-                            </p>
-                        </li>
-                    {% endfor %}
-                </ol>
-            </section>
         </div>
     </div>
+
+    <section class="references" id="references">
+        <h2>References</h2>
+        <ol>
+            {% for ref in references %}
+                <li class="reference">
+                    <p>
+                    {{ ref.citation|safe }} 
+                    {% if ref.pdf %}
+                        <a href="{{ ref.pdf.url }}" class="pdf">PDF</a> 
+                    {% endif %}
+                    {% if ref.url %}
+                        <a href="{{ ref.url }}" class="url">Link</a> 
+                    {% endif %}
+                    </p>
+                </li>
+            {% endfor %}
+        </ol>
+    </section>
 </div>
 {% endblock %}
