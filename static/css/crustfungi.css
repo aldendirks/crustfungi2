@@ -1108,7 +1108,7 @@ footer {
   display: grid;
   grid-template-columns: 300px 1fr;
   gap: 30px;
-  margin: 30px auto;
+  margin-top: 30px;
 }
 
 .keys-toc {
