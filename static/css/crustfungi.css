@@ -1104,7 +1104,7 @@ footer {
 /*-------------------------
   Keys
 -------------------------*/
-.keys {
+.keys-container {
   display: grid;
   grid-template-columns: 300px 1fr;
   gap: 30px;
@@ -1205,7 +1205,7 @@ footer {
 }
 
 @media (max-width: 1250px) {
-  .keys {
+  .keys-container {
     grid-template-columns: 1fr;
   }
 

@@ -11,104 +11,109 @@
 
 {% block content %}
 <div class="keys">
-    <aside class="keys-toc">
-        <nav class="toc-nav">
-            <h3>Table of Contents</h3>
-            <ul class="toc-list">
-                {% for key in keys %}
-                    {% if key.short_description %}
-                        <li><a href="#{{ key.slug }}" class="toc-link">{{ key.title }}: {{ key.short_description }}</a></li>
-                    {% else %}
-                        <li><a href="#{{ key.slug }}" class="toc-link">{{ key.title }}</a></li>
-                    {% endif %}
-                {% endfor %}
-                <li><a href="#references" class="toc-link">References</a></li>
-            </ul>
-        </nav>
-    </aside>
+    
+    <h1>Keys to Corticioid Genera</h1>
+    <p class="helper-text">Thanks to <a href="https://produccioncientifica.usal.es/investigadores/57507/detalle" target="_blank">Dr. Sergio Pérez Gorjón</a> for creating these dichotomous keys to corticioid genera and permitting their inclusion on CrustFungi.Com. The keys below are slightly updated from their original publication in 2020. Start with the main key to be guided to more specific keys for groups of morphologically similar genera.</p>
+    
+    <div class="keys-container">
+        
+        <aside class="keys-toc">
+            <nav class="toc-nav">
+                <h3>Table of Contents</h3>
+                <ul class="toc-list">
+                    {% for key in keys %}
+                        {% if key.short_description %}
+                            <li><a href="#{{ key.slug }}" class="toc-link">{{ key.title }}: {{ key.short_description }}</a></li>
+                        {% else %}
+                            <li><a href="#{{ key.slug }}" class="toc-link">{{ key.title }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                    <li><a href="#references" class="toc-link">References</a></li>
+                </ul>
+            </nav>
+        </aside>
 
-    <div class="keys-content">
-        <h1>Keys to Corticioid Genera</h1>
-        <p class="helper-text">Thanks to <a href="https://produccioncientifica.usal.es/investigadores/57507/detalle" target="_blank">Dr. Sergio Pérez Gorjón</a> for creating these dichotomous keys to corticioid genera and permitting their inclusion on CrustFungi.Com. The keys below are slightly updated from their original publication in 2020. Start with the main key to be guided to more specific keys for groups of morphologically similar genera.</p>
-        {% for key in keys %}
-            <div class="key-section" id="{{ key.slug }}">
-                {% if key.short_description %}
-                    <h3>{{ key.title }}: {{ key.short_description }}</h3>
-                {% else %}
-                    <h3>{{ key.title }}</h3>
-                {% endif %}
-                {% if key.description %}
-                    <p class="key-description helper-text"><i>{{ key.description }}</i></p>
-                {% endif %}
-                
-                {% if key.couplets.all %}
-                    <div class="couplets-list">
-                        {% for couplet in key.couplets.all %}
-                            <div class="couplet-item" id="{{ key.slug }}-couplet-{{ couplet.couplet_number }}">
-                                <div class="choice choice-a">
-                                    <span class="couplet-label">{{ couplet.couplet_number }}A.</span>
-                                    <div class="statement-container">
-                                        <span class="statement">{{ couplet.statement_a }}</span>
-                                        <span class="leader-dots" aria-hidden="true"></span>
-                                    </div>
-                                    <span class="destination">
-                                        {% if couplet.next_couplet_a %}
-                                            <a href="#{{ key.slug }}-couplet-{{ couplet.next_couplet_a.couplet_number }}">{{ couplet.next_couplet_a.couplet_number }}</a>
-                                        {% elif couplet.terminal_genus_a %}
-                                            {% if couplet.terminal_genus_a|genus_exists %}
-                                                <em><a href="{% url 'species_profiles:index' %}?genus={{ couplet.terminal_genus_a|extract_genus }}">{{ couplet.terminal_genus_a }}</a></em>
-                                            {% else %}
-                                                <em>{{ couplet.terminal_genus_a }}</em>
+        <div class="keys-content">
+            {% for key in keys %}
+                <div class="key-section" id="{{ key.slug }}">
+                    {% if key.short_description %}
+                        <h3>{{ key.title }}: {{ key.short_description }}</h3>
+                    {% else %}
+                        <h3>{{ key.title }}</h3>
+                    {% endif %}
+                    {% if key.description %}
+                        <p class="key-description helper-text"><i>{{ key.description }}</i></p>
+                    {% endif %}
+                    
+                    {% if key.couplets.all %}
+                        <div class="couplets-list">
+                            {% for couplet in key.couplets.all %}
+                                <div class="couplet-item" id="{{ key.slug }}-couplet-{{ couplet.couplet_number }}">
+                                    <div class="choice choice-a">
+                                        <span class="couplet-label">{{ couplet.couplet_number }}A.</span>
+                                        <div class="statement-container">
+                                            <span class="statement">{{ couplet.statement_a }}</span>
+                                            <span class="leader-dots" aria-hidden="true"></span>
+                                        </div>
+                                        <span class="destination">
+                                            {% if couplet.next_couplet_a %}
+                                                <a href="#{{ key.slug }}-couplet-{{ couplet.next_couplet_a.couplet_number }}">{{ couplet.next_couplet_a.couplet_number }}</a>
+                                            {% elif couplet.terminal_genus_a %}
+                                                {% if couplet.terminal_genus_a|genus_exists %}
+                                                    <em><a href="{% url 'species_profiles:index' %}?genus={{ couplet.terminal_genus_a|extract_genus }}">{{ couplet.terminal_genus_a }}</a></em>
+                                                {% else %}
+                                                    <em>{{ couplet.terminal_genus_a }}</em>
+                                                {% endif %}
+                                            {% elif couplet.next_key_a %}
+                                                <a href="#{{ couplet.next_key_a.slug }}">{{ couplet.next_key_a.title }}</a>
                                             {% endif %}
-                                        {% elif couplet.next_key_a %}
-                                            <a href="#{{ couplet.next_key_a.slug }}">{{ couplet.next_key_a.title }}</a>
-                                        {% endif %}
-                                    </span>
-                                </div>
-                                <div class="choice choice-b">
-                                    <span class="couplet-label">{{ couplet.couplet_number }}B.</span>
-                                    <div class="statement-container">
-                                        <span class="statement">{{ couplet.statement_b }}</span>
-                                        <span class="leader-dots" aria-hidden="true"></span>
+                                        </span>
                                     </div>
-                                    <span class="destination">
-                                        {% if couplet.next_couplet_b %}
-                                            <a href="#{{ key.slug }}-couplet-{{ couplet.next_couplet_b.couplet_number }}">{{ couplet.next_couplet_b.couplet_number }}</a>
-                                        {% elif couplet.terminal_genus_b %}
-                                            {% if couplet.terminal_genus_b|genus_exists %}
-                                                <em><a href="{% url 'species_profiles:index' %}?genus={{ couplet.terminal_genus_b|extract_genus }}">{{ couplet.terminal_genus_b }}</a></em>
-                                            {% else %}
-                                                <em>{{ couplet.terminal_genus_b }}</em>
+                                    <div class="choice choice-b">
+                                        <span class="couplet-label">{{ couplet.couplet_number }}B.</span>
+                                        <div class="statement-container">
+                                            <span class="statement">{{ couplet.statement_b }}</span>
+                                            <span class="leader-dots" aria-hidden="true"></span>
+                                        </div>
+                                        <span class="destination">
+                                            {% if couplet.next_couplet_b %}
+                                                <a href="#{{ key.slug }}-couplet-{{ couplet.next_couplet_b.couplet_number }}">{{ couplet.next_couplet_b.couplet_number }}</a>
+                                            {% elif couplet.terminal_genus_b %}
+                                                {% if couplet.terminal_genus_b|genus_exists %}
+                                                    <em><a href="{% url 'species_profiles:index' %}?genus={{ couplet.terminal_genus_b|extract_genus }}">{{ couplet.terminal_genus_b }}</a></em>
+                                                {% else %}
+                                                    <em>{{ couplet.terminal_genus_b }}</em>
+                                                {% endif %}
+                                            {% elif couplet.next_key_b %}
+                                                <a href="#{{ couplet.next_key_b.slug }}">{{ couplet.next_key_b.title }}</a>
                                             {% endif %}
-                                        {% elif couplet.next_key_b %}
-                                            <a href="#{{ couplet.next_key_b.slug }}">{{ couplet.next_key_b.title }}</a>
-                                        {% endif %}
-                                    </span>
+                                        </span>
+                                    </div>
                                 </div>
-                            </div>
-                        {% endfor %}
-                    </div>
-                {% endif %}
-            </div>
-        {% endfor %}
-        <section class="references" id="references">
-            <h2>References</h2>
-            <ol>
-                {% for ref in references %}
-                    <li class="reference">
-                        <p>
-                        {{ ref.citation|safe }} 
-                        {% if ref.pdf %}
-                            <a href="{{ ref.pdf.url }}" class="pdf">PDF</a> 
-                        {% endif %}
-                        {% if ref.url %}
-                            <a href="{{ ref.url }}" class="url">Link</a> 
-                        {% endif %}
-                        </p>
-                    </li>
-                {% endfor %}
-            </ol>
-        </section>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+            <section class="references" id="references">
+                <h2>References</h2>
+                <ol>
+                    {% for ref in references %}
+                        <li class="reference">
+                            <p>
+                            {{ ref.citation|safe }} 
+                            {% if ref.pdf %}
+                                <a href="{{ ref.pdf.url }}" class="pdf">PDF</a> 
+                            {% endif %}
+                            {% if ref.url %}
+                                <a href="{{ ref.url }}" class="url">Link</a> 
+                            {% endif %}
+                            </p>
+                        </li>
+                    {% endfor %}
+                </ol>
+            </section>
+        </div>
     </div>
 </div>
 {% endblock %}
