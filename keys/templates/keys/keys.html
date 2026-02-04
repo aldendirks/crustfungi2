@@ -10,10 +10,23 @@
 {% endblock %}
 
 {% block content %}
-<div class="keys">
-    <h1>Keys to Corticioid Genera</h1>
-    <p class="helper-text">Thanks to <a href="https://produccioncientifica.usal.es/investigadores/57507/detalle" target="_blank">Dr. Sergio Pérez Gorjón</a> for creating these dichotomous keys to corticioid genera and permitting their inclusion on CrustFungi.Com. The keys below are slightly updated from their original publication in 2020. Start with the main key to be guided to more specific keys for groups of morphologically similar genera.</p>
-    {% for key in keys %}
+<div class="keys-container">
+    <aside class="keys-toc">
+        <nav class="toc-nav">
+            <h3>Table of Contents</h3>
+            <ul class="toc-list">
+                {% for key in keys %}
+                    <li><a href="#{{ key.slug }}" class="toc-link">{{ key.title }}</a></li>
+                {% endfor %}
+                <li><a href="#references" class="toc-link">References</a></li>
+            </ul>
+        </nav>
+    </aside>
+    
+    <div class="keys">
+        <h1>Keys to Corticioid Genera</h1>
+        <p class="helper-text">Thanks to <a href="https://produccioncientifica.usal.es/investigadores/57507/detalle" target="_blank">Dr. Sergio Pérez Gorjón</a> for creating these dichotomous keys to corticioid genera and permitting their inclusion on CrustFungi.Com. The keys below are slightly updated from their original publication in 2020. Start with the main key to be guided to more specific keys for groups of morphologically similar genera.</p>
+        {% for key in keys %}
         <div class="key-section" id="{{ key.slug }}">
             {% if key.short_description %}
                 <h3>{{ key.title }}: {{ key.short_description }}</h3>
@@ -74,7 +87,7 @@
             {% endif %}
         </div>
     {% endfor %}
-    <section class="references">
+    <section class="references" id="references">
         <h2>References</h2>
         <ol>
             {% for ref in references %}
@@ -92,5 +105,6 @@
             {% endfor %}
         </ol>
     </section>
+    </div>
 </div>
 {% endblock %}

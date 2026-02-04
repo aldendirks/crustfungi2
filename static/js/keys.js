@@ -93,3 +93,43 @@ if (document.fonts) {
     updateLeaderDots();
   });
 }
+
+// Table of Contents - Active Link Highlighting
+function updateActiveTocLink() {
+  const sections = document.querySelectorAll('.key-section, #references');
+  const tocLinks = document.querySelectorAll('.toc-link');
+
+  let activeSection = null;
+  let maxVisibleHeight = 0;
+
+  // Find the section most visible in viewport
+  sections.forEach(section => {
+    const rect = section.getBoundingClientRect();
+    const visibleHeight = Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0);
+    
+    if (visibleHeight > 0 && visibleHeight > maxVisibleHeight) {
+      maxVisibleHeight = visibleHeight;
+      activeSection = section;
+    }
+  });
+
+  // Update active state
+  tocLinks.forEach(link => {
+    link.classList.remove('active');
+  });
+
+  if (activeSection) {
+    const activeSectionId = activeSection.id;
+    const activeLink = document.querySelector(`.toc-link[href="#${activeSectionId}"]`);
+    if (activeLink) {
+      activeLink.classList.add('active');
+    }
+  }
+}
+
+// Debounce scroll events for performance
+const debouncedUpdateActiveTocLink = debounce(updateActiveTocLink, 100);
+
+document.addEventListener('DOMContentLoaded', updateActiveTocLink);
+window.addEventListener('scroll', debouncedUpdateActiveTocLink);
+
