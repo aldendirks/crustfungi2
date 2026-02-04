@@ -1110,6 +1110,7 @@ footer {
   gap: 30px;
   max-width: 1300px;
   margin: 0 auto;
+  margin-top: 20px;
 }
 
 .keys-toc {
@@ -1123,6 +1124,7 @@ footer {
 }
 
 .toc-nav h3 {
+  margin-top: 0;
   margin-bottom: 10px;
   font-size: 1rem;
   color: var(--content-h3);
@@ -1157,6 +1159,10 @@ footer {
 .toc-link.active {
   background-color: var(--nav-hover-bg);
   color: var(--body-background);
+}
+
+.keys-content:first-child {
+  margin-top: 0;
 }
 
 .key-section {
