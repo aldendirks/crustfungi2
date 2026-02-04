@@ -131,5 +131,5 @@ function updateActiveTocLink() {
 const debouncedUpdateActiveTocLink = debounce(updateActiveTocLink, 100);
 
 document.addEventListener('DOMContentLoaded', updateActiveTocLink);
-window.addEventListener('scroll', debouncedUpdateActiveTocLink);
+window.addEventListener('scroll', updateActiveTocLink);
 
