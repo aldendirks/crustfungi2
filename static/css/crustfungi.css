@@ -916,6 +916,7 @@ footer {
 .species-list-item p {
   height: 50px;
   margin-bottom: 5px;
+  font-size: 0.9rem;
 }
 
 .species-list-item img:hover {
