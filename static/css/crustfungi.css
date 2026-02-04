@@ -1160,6 +1160,10 @@ footer {
   color: var(--body-background);
 }
 
+.keys-content p {
+  font-size: 0.9rem;
+}
+
 .key-section {
   margin-bottom: 35px;
 }
