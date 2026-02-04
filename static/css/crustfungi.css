@@ -1113,7 +1113,7 @@ footer {
 
 .keys-toc {
   position: sticky;
-  top: 50px;
+  top: 20px;
   height: fit-content;
   max-height: calc(100vh - 100px);
   overflow-y: auto;
