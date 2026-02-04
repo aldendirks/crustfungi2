@@ -16,7 +16,11 @@
             <h3>Table of Contents</h3>
             <ul class="toc-list">
                 {% for key in keys %}
-                    <li><a href="#{{ key.slug }}" class="toc-link">{{ key.title }}: {{ key.short_description }}</a></li>
+                    {% if key.short_description %}
+                        <li><a href="#{{ key.slug }}" class="toc-link">{{ key.title }}: {{ key.short_description }}</a></li>
+                    {% else %}
+                        <li><a href="#{{ key.slug }}" class="toc-link">{{ key.title }}</a></li>
+                    {% endif %}
                 {% endfor %}
                 <li><a href="#references" class="toc-link">References</a></li>
             </ul>
