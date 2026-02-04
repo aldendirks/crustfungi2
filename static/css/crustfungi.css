@@ -1109,13 +1109,12 @@ footer {
   grid-template-columns: 300px 1fr;
   gap: 30px;
   max-width: 1300px;
-  margin: 0 auto;
-  margin-top: 20px;
+  margin: 30px auto;
 }
 
 .keys-toc {
   position: sticky;
-  top: 0;
+  top: 20px;
   height: fit-content;
   max-height: calc(100vh - 80px);
   overflow-y: auto;
@@ -1127,7 +1126,6 @@ footer {
   margin-top: 0;
   margin-bottom: 10px;
   font-size: 1rem;
-  color: var(--content-h3);
 }
 
 .toc-list {
@@ -1142,8 +1140,6 @@ footer {
 }
 
 .toc-link {
-  color: var(--link-color);
-  text-decoration: none;
   font-size: 0.8rem;
   display: block;
   padding: 6px 8px;
@@ -1161,12 +1157,16 @@ footer {
   color: var(--body-background);
 }
 
-.keys-content:first-child {
+.keys-content h3:first-of-type {
   margin-top: 0;
 }
 
 .key-section {
   margin-bottom: 35px;
+  scroll-margin-top: 20px;
+}
+
+#references {
   scroll-margin-top: 20px;
 }
 
@@ -1176,10 +1176,6 @@ footer {
 
 .couplet-item {
   margin-bottom: 15px;
-}
-
-#references {
-  scroll-margin-top: 20px;
 }
 
 .choice {
@@ -1208,7 +1204,7 @@ footer {
   white-space: nowrap;
 }
 
-@media (max-width: 1250px) {
+@media (max-width: 768px) {
   .keys-container {
     grid-template-columns: 1fr;
   }
@@ -1216,9 +1212,7 @@ footer {
   .keys-toc {
     display: none;
   }
-}
-
-@media (max-width: 768px) {
+  
   .destination {
     flex: 1 1 auto;
     align-self: flex-start;
