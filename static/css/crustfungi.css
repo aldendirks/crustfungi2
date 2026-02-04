@@ -1166,10 +1166,15 @@ footer {
 
 .key-section {
   margin-bottom: 35px;
+  scroll-margin-top: 20px;
 }
 
 .couplet-item {
   margin-bottom: 15px;
+}
+
+#references {
+  scroll-margin-top: 20px;
 }
 
 .choice {
