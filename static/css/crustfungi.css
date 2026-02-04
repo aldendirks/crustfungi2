@@ -1120,7 +1120,6 @@ footer {
   overflow-y: auto;
   padding-right: 12px;
   border-right: 2px solid var(--nav-border);
-  margin-top: 50px;
 }
 
 .toc-nav h3 {
