@@ -1105,15 +1105,16 @@ footer {
 -------------------------*/
 .keys {
   display: grid;
-  grid-template-columns: 275px 1fr;
+  grid-template-columns: 300px 1fr;
   gap: 30px;
-  max-width: 1250px;
+  max-width: 1300px;
   margin: 0 auto;
 }
 
 .keys-toc {
   position: sticky;
   top: 50px;
+  height: fit-content;
   padding-right: 15px;
   border-right: 2px solid var(--nav-border);
   margin-top: 50px;
