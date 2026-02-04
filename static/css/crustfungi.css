@@ -1105,7 +1105,7 @@ footer {
 -------------------------*/
 .keys {
   display: grid;
-  grid-template-columns: 250px 1fr;
+  grid-template-columns: 275px 1fr;
   gap: 30px;
   max-width: 1250px;
   margin: 0 auto;
@@ -1117,11 +1117,12 @@ footer {
   height: fit-content;
   padding-right: 15px;
   border-right: 2px solid var(--nav-border);
+  margin-top: 50px;
 }
 
 .toc-nav h3 {
   margin-top: 0;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   font-size: 1.2rem;
   color: var(--content-h3);
 }
@@ -1140,7 +1141,7 @@ footer {
 .toc-link {
   color: var(--link-color);
   text-decoration: none;
-  font-size: 0.95rem;
+  font-size: 0.8rem;
   display: block;
   padding: 6px 8px;
   border-radius: 4px;
@@ -1191,7 +1192,7 @@ footer {
   white-space: nowrap;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1250px) {
   .keys {
     grid-template-columns: 1fr;
     gap: 20px;
@@ -1204,7 +1205,7 @@ footer {
     border-bottom: 2px solid var(--nav-border);
     padding-right: 0;
     padding-bottom: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
 
   .toc-nav {
@@ -1234,23 +1235,19 @@ footer {
 }
 
 @media (max-width: 768px) {
-  .destination {
-    flex: 1 1 auto;
-    align-self: flex-start;
-    text-align: right;
-    white-space: normal;
-  }
-
-  .leader-dots {
-    display: none;
+  .keys {
+    grid-template-columns: 1fr;
   }
 
   .keys-toc {
     display: none;
   }
 
-  .keys {
-    grid-template-columns: 1fr;
+  .destination {
+    flex: 1 1 auto;
+    align-self: flex-start;
+    text-align: right;
+    white-space: normal;
   }
 }
 
