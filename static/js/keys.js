@@ -100,15 +100,15 @@ function updateActiveTocLink() {
   const tocLinks = document.querySelectorAll('.toc-link');
 
   let activeSection = null;
-  let maxVisibleHeight = 0;
+  let closestToTop = Infinity;
 
-  // Find the section most visible in viewport
+  // Find the section closest to the top of the viewport that's visible
   sections.forEach(section => {
     const rect = section.getBoundingClientRect();
-    const visibleHeight = Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0);
+    const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
     
-    if (visibleHeight > 0 && visibleHeight > maxVisibleHeight) {
-      maxVisibleHeight = visibleHeight;
+    if (isVisible && rect.top < closestToTop) {
+      closestToTop = rect.top;
       activeSection = section;
     }
   });
@@ -126,9 +126,6 @@ function updateActiveTocLink() {
     }
   }
 }
-
-// Debounce scroll events for performance
-const debouncedUpdateActiveTocLink = debounce(updateActiveTocLink, 100);
 
 document.addEventListener('DOMContentLoaded', updateActiveTocLink);
 window.addEventListener('scroll', updateActiveTocLink);
