@@ -1204,19 +1204,21 @@ footer {
 }
 
 @media (max-width: 768px) {
+  .destination {
+    flex: 1 1 auto;
+    align-self: flex-start;
+    text-align: right;
+    white-space: normal;
+  }
+}
+
+@media (max-width: 1200px) {
   .keys-container {
     grid-template-columns: 1fr;
   }
 
   .keys-toc {
     display: none;
-  }
-  
-  .destination {
-    flex: 1 1 auto;
-    align-self: flex-start;
-    text-align: right;
-    white-space: normal;
   }
 }
 
