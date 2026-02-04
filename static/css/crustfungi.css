@@ -1212,7 +1212,7 @@ footer {
   }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 960px) {
   .keys-container {
     grid-template-columns: 1fr;
   }
