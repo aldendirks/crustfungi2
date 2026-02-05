@@ -66,6 +66,9 @@
                                             {% elif couplet.next_key_a %}
                                                 <a href="#{{ couplet.next_key_a.slug }}">{{ couplet.next_key_a.title }}</a>
                                             {% endif %}
+                                            {% if couplet.additional_information_a %}
+                                                <span class="additional-info">{{ couplet.additional_information_a|safe }}</span>
+                                            {% endif %}
                                         </span>
                                     </div>
                                     <div class="choice choice-b">
@@ -85,6 +88,9 @@
                                                 {% endif %}
                                             {% elif couplet.next_key_b %}
                                                 <a href="#{{ couplet.next_key_b.slug }}">{{ couplet.next_key_b.title }}</a>
+                                            {% endif %}
+                                            {% if couplet.additional_information_b %}
+                                                <span class="additional-info">{{ couplet.additional_information_b|safe }}</span>
                                             {% endif %}
                                         </span>
                                     </div>

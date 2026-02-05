@@ -1169,6 +1169,10 @@ footer {
   scroll-margin-top: 20px;
 }
 
+.key-section:last-child {
+  margin-bottom: 0;
+}
+
 .couplets-list {
   font-size: 0.9rem;
 }
@@ -1201,6 +1205,19 @@ footer {
   flex: 0 0 auto;
   align-self: flex-end;
   white-space: nowrap;
+  display: inline;
+}
+
+.additional-info {
+  display: inline;
+  font-size: 0.9rem;
+  margin-left: 4px;
+}
+
+.additional-info p {
+  display: inline;
+  font-size: 0.9rem;
+  margin: 0;
 }
 
 @media (max-width: 768px) {
