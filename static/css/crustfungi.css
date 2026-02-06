@@ -536,7 +536,7 @@ footer {
 .footer-links a {
   color: var(--nav-text);
   margin: 0 7px;
-  font-size: 1rem;
+  font-size: 0.95rem;
 }
 
 .footer-links a:hover {
@@ -546,7 +546,7 @@ footer {
 .footer-tagline {
   margin-top: 6px;
   font-style: italic;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
 }
 
 .footer-social {
