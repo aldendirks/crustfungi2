@@ -526,7 +526,7 @@ footer {
 
 .footer-copy {
   margin-top: -20px;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
 }
 
 .footer-links {
@@ -536,7 +536,7 @@ footer {
 .footer-links a {
   color: var(--nav-text);
   margin: 0 7px;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .footer-links a:hover {
