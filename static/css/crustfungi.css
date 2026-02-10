@@ -334,7 +334,7 @@ header {
 .nav-links a {
   color: var(--nav-text);
   font-size: 1.25rem;
-  padding: 8px 16px 0 16px;
+  padding: 8px 16px;
   border-radius: 6px;
 }
 
