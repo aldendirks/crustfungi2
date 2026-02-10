@@ -55,38 +55,42 @@
 <header>
     <nav class="nav-bounds">
         <div class="nav-container">
-            <div class="nav-logo">
-                <a href="{% url 'home' %}">
-                    <img src="{% static 'images/icons/site_icon_small.png' %}" alt="CrustFungi.Com Logo">
-                </a>
+            <div class="nav-left">
+                <div class="nav-logo">
+                    <a href="{% url 'home' %}">
+                        <img src="{% static 'images/icons/site_icon_small.png' %}" alt="CrustFungi.Com Logo">
+                    </a>
+                </div>
+                <div class="nav-links">
+                    <a href="{% url 'home' %}">HOME</a>
+                    <a href="{% url 'introduction' %}">INTRO</a>
+                    <a href="{% url 'species_profiles:index' %}">SPECIES</a>
+                    <a href="{% url 'keys:index' %}">KEYS</a>
+                    <a href="{% url 'glossary' %}">GLOSSARY</a>
+                    <a href="{% url 'literature:index' %}">LITERATURE</a>
+                </div>
             </div>
-            <div class="nav-links">
-                <a href="{% url 'home' %}">HOME</a>
-                <a href="{% url 'introduction' %}">INTRO</a>
-                <a href="{% url 'species_profiles:index' %}">SPECIES</a>
-                <a href="{% url 'keys:index' %}">KEYS</a>
-                <a href="{% url 'glossary' %}">GLOSSARY</a>
-                <a href="{% url 'literature:index' %}">LITERATURE</a>
+            <div class="nav-right">
+                <div class="nav-login">
+                    {% if user.is_authenticated %}
+                        <p><a href="{% url 'users:logout' %}">LOG OUT</a></p>
+                    {% else %}
+                        <p><a href="{% url 'users:login' %}">LOGIN</a> &ensp; <a href="{% url 'users:register' %}">REGISTER</a></p>
+                    {% endif %}
+                </div>
+                <form action="{% url 'species_profiles:search' %}" method="get" class="site-search">
+                    <input type="text" name="q" placeholder="Search species…" value="{{ request.GET.q }}">
+                    <button type="submit" class="button-major">Search</button>
+                </form>
+                <button id="navDarkModeToggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
+                    <span class="dark-mode-icon"></span>
+                </button>
             </div>
-            <div class="login">
-                {% if user.is_authenticated %}
-                    <p><a href="{% url 'users:logout' %}">LOG OUT</a></p>
-                {% else %}
-                    <p><a href="{% url 'users:login' %}">LOGIN</a> &ensp; <a href="{% url 'users:register' %}">REGISTER</a></p>
-                {% endif %}
-            </div>
-            <form action="{% url 'species_profiles:search' %}" method="get" class="site-search">
-                <input type="text" name="q" placeholder="Search species…" value="{{ request.GET.q }}">
-                <button type="submit" class="button-major">Search</button>
-            </form>
-            <button id="navDarkModeToggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
-                <span class="dark-mode-icon"></span>
-            </button>
-        </div>
-        <div class="hamburger" onclick="toggleMenu(this)">
+            <div class="hamburger" onclick="toggleMenu(this)">
                 <div class="bar1"></div>
                 <div class="bar2"></div>
                 <div class="bar3"></div>
+            </div>
         </div>
     </nav>
 </header>

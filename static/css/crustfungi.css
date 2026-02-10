@@ -324,9 +324,15 @@ header {
 
 .nav-container {
   display: flex;
-  align-items: center; /* vertically align logo and links despite different heights */
-  gap: 25px;
+  justify-content: space-between;
+  align-items: center;
   padding: 5px 20px;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
 }
 
 .nav-logo img {
@@ -336,6 +342,7 @@ header {
 
 .nav-links {
   display: flex;
+  align-items: center;
 }
 
 .nav-links a {
@@ -350,20 +357,31 @@ header {
   background-color: var(--nav-hover-bg);
 }
 
-.login {
-  margin-left: auto;
-  margin-top: 24px;
+.nav-right {
   display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
-.login a {
+.nav-login {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.nav-login p {
+  margin: 0;
+}
+
+.nav-login a {
   font-size: 1rem;
+  margin: 0;
 }
 
 .site-search {
   display: flex;
-  gap: 10px;
   align-items: center;
+  gap: 10px;
 }
 
 .site-search input {
@@ -437,9 +455,9 @@ html.dark-mode .dark-mode-toggle:hover {
 -------------------------*/
 @media (max-width: 1300px) {
   .nav-links, 
-  .login, 
-  .site-search input, /* needs to be explicitly called for some reason */
-  .site-search button, /* needs to be explicitly called for some reason */
+  .nav-login, 
+  .site-search input,
+  .site-search button,
   #navDarkModeToggle {  
     display: none;
   }
@@ -448,30 +466,32 @@ html.dark-mode .dark-mode-toggle:hover {
     display: block;
   }
 
-  nav.responsive .nav-container {
+  nav.responsive .nav-container,
+  nav.responsive .nav-left, 
+  nav.responsive .nav-right,
+  nav.responsive .nav-links {
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
   }
 
   nav.responsive .nav-links {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
     margin-top: -20px;
-    gap: 0;
+  }
+
+  nav.responsive .nav-links a {
+    width: 100%;
   }
   
-  nav.responsive .login {
+  nav.responsive .nav-login {
     display: flex;
-    justify-content: center;
-    margin: -20px 0;
-    margin-left: 15px;
+    margin-left: 16px;
   }
 
   nav.responsive .site-search {
     display: flex;
-    margin: -10px 0 20px 15px;
+    margin: -10px 0 20px 16px;
   }
   
   nav.responsive .site-search input,
@@ -480,7 +500,7 @@ html.dark-mode .dark-mode-toggle:hover {
   }
 
   nav.responsive .nav-links,
-  nav.responsive .login,
+  nav.responsive .nav-login,
   nav.responsive .site-search {
     transform: translateY(0);
     animation: navFadeIn 0.5s ease;
@@ -494,7 +514,7 @@ html.dark-mode .dark-mode-toggle:hover {
 
 /* Do not allow logging in on mobile */
 @media (max-width: 768px) {
-  nav.responsive .login {
+  nav.responsive .nav-login {
     display: none;
   }
 }
