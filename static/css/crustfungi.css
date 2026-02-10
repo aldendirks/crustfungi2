@@ -9,9 +9,16 @@
 /*-------------------------
   Fonts
 -------------------------*/
-@font-face { font-family: "Peich"; src: url("fonts/peich/peich.otf"); }
+/*@font-face { font-family: "Peich"; src: url("fonts/peich/peich.otf"); }*/
 @font-face { font-family: "Roboto-Regular"; src: url("fonts/roboto/roboto-regular.ttf"); }
 @font-face { font-family: "Roboto-Bold"; src: url("fonts/roboto/roboto-bold.ttf"); }
+@font-face {
+  font-family: 'Peich';
+  src: url('fonts/peich_fontsquirrel/peich-webfont.woff2') format('woff2'),
+       url('fonts/peich_fontsquirrel/peich-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 
 /*-------------------------
   Aesthetics
@@ -336,7 +343,6 @@ header {
   font-size: 1.25rem;
   padding: 8px 16px;
   border-radius: 6px;
-  -webkit-font-smoothing: antialiased;
 }
 
 .nav-links a:hover {
