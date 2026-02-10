@@ -487,11 +487,12 @@ html.dark-mode .dark-mode-toggle:hover {
   nav.responsive .nav-login {
     display: flex;
     margin-left: 16px;
+    margin-bottom: -20px;
   }
 
   nav.responsive .site-search {
     display: flex;
-    margin: -10px 0 20px 16px;
+    margin: 16px;
   }
   
   nav.responsive .site-search input,
@@ -512,12 +513,12 @@ html.dark-mode .dark-mode-toggle:hover {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Do not allow logging in on mobile */
+/* Do not allow logging in on mobile 
 @media (max-width: 768px) {
   nav.responsive .nav-login {
     display: none;
   }
-}
+}*/
 
 /*-------------------------
   References
