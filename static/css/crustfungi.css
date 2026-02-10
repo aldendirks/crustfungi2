@@ -408,13 +408,37 @@ header {
   color: var(--nav-text);
 }
 
-.dark-mode-icon::before {
-  content: "⏾";
-  opacity: 0.9;
+.dark-mode-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.2em;
+  height: 1.2em;
 }
 
-html.dark-mode .dark-mode-icon::before {
-  content: "☀︎";
+.dark-mode-icon svg {
+  width: 0.8em;
+  height: 0.8em;
+  opacity: 0.9;
+  display: block;
+}
+
+svg.icon-moon {
+  display: block;
+}
+
+svg.icon-sun {
+  display: none;
+  transform: translateY(0.03em);
+}
+
+html.dark-mode svg.icon-moon {
+  display: none;
+}
+
+html.dark-mode svg.icon-sun {
+  display: block;
 }
 
 .dark-mode-toggle:hover {
