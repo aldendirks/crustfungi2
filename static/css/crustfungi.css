@@ -334,8 +334,13 @@ header {
 .nav-links a {
   color: var(--nav-text);
   font-size: 1.25rem;
-  padding: 8px 16px;
   border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  min-width: 44px;
+  padding: 0 16px;
 }
 
 .nav-links a:hover {
