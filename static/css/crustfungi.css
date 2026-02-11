@@ -1191,6 +1191,29 @@ html.dark-mode .taxonomy-sidebar .facet-options::-webkit-scrollbar-thumb {
   border-right: 2px solid var(--nav-border);
 }
 
+.keys-toc::-webkit-scrollbar {
+  width: 12px;
+}
+
+.keys-toc::-webkit-scrollbar-track {
+  background: var(--body-background);
+  border-radius: 6px;
+}
+
+html.dark-mode .keys-toc::-webkit-scrollbar-track {
+  background: var(--content-h3);
+}
+
+.keys-toc::-webkit-scrollbar-thumb {
+  background-color: var(--nav-border);
+  border-radius: 6px;
+  border: 3px solid var(--body-background);
+}
+
+html.dark-mode .keys-toc::-webkit-scrollbar-thumb {
+  border: 3px solid var(--content-h3);
+}
+
 .toc-nav h3 {
   margin-top: 0;
   margin-bottom: 10px;
