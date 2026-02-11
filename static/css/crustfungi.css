@@ -71,11 +71,6 @@ html.dark-mode img[src="/static/images/species/default_species.png"] {
   filter: invert(100%);
 }
 
-html {
-  scrollbar-color: var(--nav-border) var(--body-background);
-  overflow-x: hidden; /* prevent horizontal scroll from 100vw elements */
-}
-
 .button-major {
   background: var(--nav-hover-bg);
   color: var(--body-background);
@@ -851,20 +846,26 @@ footer {
 }
 
 .taxonomy-sidebar .facet-options::-webkit-scrollbar {
-  width: 8px;
+  width: 12px;
 }
 
 .taxonomy-sidebar .facet-options::-webkit-scrollbar-track {
-  background: transparent;
+  background: var(--body-background);
+  border-radius: 6px;
+}
+
+html.dark-mode .taxonomy-sidebar .facet-options::-webkit-scrollbar-track {
+  background: var(--content-h3);
 }
 
 .taxonomy-sidebar .facet-options::-webkit-scrollbar-thumb {
   background-color: var(--nav-border);
   border-radius: 6px;
+  border: 3px solid var(--body-background);
 }
 
-.taxonomy-sidebar .facet-options::-webkit-scrollbar-thumb:hover {
-  background-color: var(--nav-text-light);
+html.dark-mode .taxonomy-sidebar .facet-options::-webkit-scrollbar-thumb {
+  border: 3px solid var(--content-h3);
 }
 
 .taxonomy-sidebar li {
