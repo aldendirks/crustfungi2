@@ -814,7 +814,6 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
 }
 
 .taxonomy-sidebar__header h3 {
@@ -849,6 +848,23 @@ footer {
   border: 1px solid var(--nav-border);
   background-color: var(--nav-background);
   border-radius: 6px;
+}
+
+.taxonomy-sidebar .facet-options::-webkit-scrollbar {
+  width: 8px;
+}
+
+.taxonomy-sidebar .facet-options::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.taxonomy-sidebar .facet-options::-webkit-scrollbar-thumb {
+  background-color: var(--nav-border);
+  border-radius: 6px;
+}
+
+.taxonomy-sidebar .facet-options::-webkit-scrollbar-thumb:hover {
+  background-color: var(--nav-text-light);
 }
 
 .taxonomy-sidebar li {
