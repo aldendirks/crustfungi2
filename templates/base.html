@@ -6,6 +6,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="light dark">
+    {% if request.GET %}
+        <meta name="robots" content="noindex, follow">
+    {% endif %}
+    <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}">
 
     <!-- SEO Block -->
     <title>{% block seo_title %}CrustFungi.Com{% endblock %}</title>
