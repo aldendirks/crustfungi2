@@ -496,7 +496,7 @@ html.dark-mode .dark-mode-toggle:hover {
   }
 
   nav.responsive .nav-links {
-    margin-top: -20px;
+    margin-top: -16px;
   }
 
   nav.responsive .nav-links a {
@@ -505,8 +505,7 @@ html.dark-mode .dark-mode-toggle:hover {
   
   nav.responsive .nav-login {
     display: flex;
-    margin-left: 16px;
-    margin-bottom: -24px;
+    margin: 8px 0 -24px 16px;
   }
 
   nav.responsive .site-search {
