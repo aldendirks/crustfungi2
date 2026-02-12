@@ -985,7 +985,7 @@ html.dark-mode .taxonomy-sidebar .facet-options::-webkit-scrollbar-thumb {
 
 .species-list-item p {
   height: 50px;
-  margin-bottom: 5px;
+  margin-bottom: 0;
   font-size: 0.9rem;
 }
 
