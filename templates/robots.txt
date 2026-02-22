@@ -2,10 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /users/
-Crawl-delay: 1
+Disallow: /*?
 
-User-agent: AdsBot-Google
-User-agent: Googlebot
-Crawl-delay: 0
-
-Sitemap: /sitemap.xml
+Sitemap: https://www.crustfungi.com/sitemap.xml
