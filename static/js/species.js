@@ -182,8 +182,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     resizeSpeciesListContainer();
                 }
 
-                if (pushState && data.canonical_url) {
-                    history.pushState(null, "", data.canonical_url);
+                if (pushState && data.browser_url) {
+                    history.pushState(null, "", data.browser_url);
                 }
 
                 requestAnimationFrame(() => {
