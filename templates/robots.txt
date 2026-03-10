@@ -2,6 +2,5 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /users/
-Disallow: /*?
 
 Sitemap: https://www.crustfungi.com/sitemap.xml
