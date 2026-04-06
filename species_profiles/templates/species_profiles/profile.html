@@ -42,13 +42,16 @@
                 <a href="{% url 'species_profiles:index' %}?family={{ profile.tax_family|urlencode }}"><i>{{ profile.tax_family}}</i></a> > 
                 <a href="{% url 'species_profiles:index' %}?genus={{ profile.tax_genus|urlencode }}"><i>{{ profile.tax_genus }}</i></a>
             </h4> 
-            {% if profile.mycobank %}
-                <span class="taxonomy__icons">
+            <span class="taxonomy__icons">
+                {% if profile.mycobank %}
                     <a href="https://www.mycobank.org/MB/{{ profile.mycobank }}"><img src="{% static 'images/icons/MB_icon_60.png' %}" alt="MycoBank icon" class="taxonomy__icon"></a>
                     <a href="https://www.indexfungorum.org/names/NamesRecord.asp?RecordID={{ profile.mycobank }}"><img src="{% static 'images/icons/index_fungorum_icon_60.png' %}" alt="IndexFungorum icon" class="taxonomy__icon"></a>
                     <a href="https://nmdc.cn/fungalnames/namesearch/toallfungalinfo?recordNumber={{ profile.mycobank }}"><img src="{% static 'images/icons/FN_icon_60.png' %}" alt="FungalNames icon" class="taxonomy__icon"></a>
-                </span>
-            {% endif %}
+                {% endif %}
+                {% if profile.gbif %}
+                    <a href="https://www.gbif.org/species/{{ profile.gbif }}"><img src="{% static 'images/icons/GBIF_icon_60.png' %}" alt="GBIF icon" class="taxonomy__icon"></a>
+                {% endif %}
+            </span>
         </div>
     </section>
     <section class="profile-content">
